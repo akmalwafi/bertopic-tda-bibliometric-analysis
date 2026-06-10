@@ -1,0 +1,61 @@
+Topic,Keywords,Topic_Label
+0,"['network', 'network analysis', 'social', 'social network', 'networks', 'criminal', 'crime', 'drug', 'gang', 'structure']",Social Criminal Network Structure Analysis
+1,"['bullying', 'victimization', 'adolescents', 'social', 'peer', 'network', 'were', 'school', 'students', 'friends']",Social Peer Networks: Adolescent Bullying & Victimization in School
+2,"['artificial intelligence', 'artificial', 'legal', 'ai', 'criminal', 'law', 'of artificial', 'liability', 'of ai', 'human']",Artificial Intelligence Legal Liability
+3,"['crime', 'mining', 'data mining', 'prediction', 'crimes', 'clustering', 'crime analysis', 'police', 'crime data', 'crime prediction']",Crime Mining & Prediction Clustering (Police Data Analysis)
+4,"['age', 'estimation', 'sex', 'forensic', 'age estimation', 'dental', 'were', 'accuracy', 'sex estimation', 'radiographs']",Forensic Age and Sex Estimation from Dental Radiographs
+5,"['laundering', 'financial', 'money', 'money laundering', 'blockchain', 'transactions', 'aml', 'antimoney laundering', 'antimoney', 'smart']",Antimoney Laundering in Smart Blockchain Transactions
+6,"['surveillance', 'detection', 'video', 'deep', 'deep learning', 'recognition', 'system', 'neural', 'object', 'abnormal']",Deep Video Surveillance System Using Neural Object Recognition
+7,"['fairness', 'bias', 'recidivism', 'models', 'algorithmic', 'fair', 'ml', 'prediction', 'algorithmic fairness', 'justice']",Algorithmic Fairness in Criminal Justice ML Prediction Models
+8,"['deepfake', 'deepfakes', 'deepfake detection', 'detection', 'face', 'fake', 'images', 'deep', 'videos', 'deep learning']",Deep Learning-Based Deepfake Detection for Images and Videos (Face)
+9,"['legal', 'prediction', 'judgment', 'text', 'cases', 'court', 'word', 'neural', 'ontology', 'language']",Neural Text Analysis for Legal Judgments
+10,"['crime', 'spatial', 'urban', 'patterns', 'prediction', 'spatiotemporal', 'of crime', 'theft', 'hotspot', 'city']",Spatiotemporal Urban Crime Pattern Prediction (Theft Hotspots)
+11,"['forensic', 'ai', 'digital', 'forensics', 'digital forensics', 'artificial intelligence', 'artificial', 'investigations', 'in forensic', 'of forensic']",Digital Forensics AI Investigations
+12,"['big', 'big data', 'of big', 'investigation', 'hadoop', 'security', 'analytics', 'data and', 'interrogation', 'personal']",Big Data Investigation & Analytics (Security Focus)
+13,"['ai', 'justice', 'criminal justice', 'design', 'algorithmic', 'algorithms', 'criminal', 'decisions', 'public', 'human']",AI in Criminal Justice Algorithm Design for Public Decisions
+14,"['phishing', 'malicious', 'urls', 'phishing attacks', 'detection', 'phishing detection', 'url', 'attacks', 'websites', 'of phishing']",Phishing URL Detection
+15,"['predictive', 'predictive policing', 'policing', 'of predictive', 'police', 'crime', 'algorithms', 'policy', 'about', 'police work']",Predictive Policing Algorithms in Police Work & Policy
+16,"['language', 'text', 'natural language', 'language processing', 'natural', 'processing', 'police', 'crime', 'nlp', 'corpus']",Natural Language Crime Corpus Processing
+17,"['intrusion', 'intrusion detection', 'detection', 'security', 'cyber', 'ids', 'network', 'attacks', 'system', 'systems']",Network Security Systems - Intrusion Detection
+18,"['deep', 'forensic', 'postmortem', 'images', 'deep learning', 'was', 'were', 'gunshot', 'in forensic', 'neural']",Deep Forensic Postmortem Image Analysis with Deep Learning
+19,"['cybersecurity', 'cyber', 'threat', 'security', 'artificial', 'artificial intelligence', 'ai', 'medical', 'threats', 'smes']",Artificial Intelligence for Cybersecurity Threats in SMEs (Medical)
+20,"['malware', 'malware detection', 'detection', 'deep learning', 'deep', 'malware analysis', 'static', 'of malware', 'apps', 'android']",Deep Learning Malware Detection for Android Apps (Static Analysis)
+21,"['authorship', 'author', 'text', 'identification', 'gender', 'language', 'profiling', 'authorship identification', 'linguistics', 'author profiling']",Authorship Profiling and Identification via Linguistics
+22,"['big', 'big data', 'police', 'of big', 'policing', 'criminal', 'justice', 'risk', 'science', 'public']",Big Data in Public Safety and Criminal Justice Risk Science
+23,"['policing', 'facial recognition', 'facial', 'frt', 'police', 'public', 'officers', 'ai', 'recognition', 'technology']",AI-Based Facial Recognition in Public Policing
+24,"['fraud', 'credit', 'card', 'credit card', 'fraud detection', 'financial', 'fraudulent', 'card fraud', 'banking', 'detection']",Credit Card Fraud Detection (Financial)
+25,"['recidivism', 'risk', 'homelessness', 'substance', 'assessment', 'substance use', 'treatment', 'rehabilitation', 'were', 'predictive']",Predictive Substance Use Risk Assessment for Homeless Rehabilitation
+26,"['street', 'street view', 'urban', 'view', 'crime', 'environment', 'streetscape', 'perception', 'view images', 'street crime']",Urban Street Perception and Crime Scene Analysis (based on street view images)
+27,"['cyberbullying', 'cyberbullying detection', 'media', 'hate', 'hate speech', 'bullying', 'speech', 'social media', 'language', 'social']",Social Media Hate Speech Detection and Cyberbullying
+28,"['image', 'forgery', 'images', 'forgery detection', 'image forensics', 'image forgery', 'deep', 'detection', 'deep learning', 'forensics']",Deep Learning-Based Image Forgery Detection (Image Forensics)
+29,"['city', 'smart', 'big data', 'big', 'smart city', 'traffic', 'cities', 'vehicle', 'analytics', 'data analytics']",Smart City Big Data Analytics
+30,"['policing', 'surveillance', 'big', 'big data', 'governance', 'police', 'data surveillance', 'policing and', 'stochastic governance', 'lgbtq']",Big Data Surveillance Governance (LGBTQ)
+31,"['ddos', 'attacks', 'attack', 'ddos attacks', 'ddos attack', 'iot', 'detection', 'distributed denial', 'denial', 'denial of']",Distributed Denial of Service Attacks on IoT
+32,"['crime', 'prediction', 'forecasting', 'crime prediction', 'neural', 'deep', 'deep learning', 'time series', 'spatiotemporal', 'time']",Deep Neural Time Series Analysis for Crime Forecasting
+33,"['link prediction', 'link', 'network', 'prediction', 'community detection', 'community', 'social', 'networks', 'social network', 'graph']",Social Network Analysis and Community Detection
+34,"['twitter', 'tweets', 'social', 'media', 'crime', 'social media', 'arabic', 'text', 'mining', 'sentiment']",Arabic Sentiment Mining on Twitter Crime Tweets
+35,"['identity', 'mining', 'identity theft', 'text', 'theft', 'email', 'text mining', 'cybercrime', 'forums', 'of identity']",Identity Theft and Cybercrime Text Mining
+36,"['visualization', 'crime', 'gis', 'visual', 'news', 'text', 'crime analysis', 'mining', 'factgraph', 'visual analytics']",'Crime GIS Visualization and Analysis'
+37,"['dna', 'forensic', 'microbial', 'microbiome', 'microbiology', 'bacterial', 'dna analysis', 'forensic dna', 'identification', 'sequencing']",Forensic Microbial DNA Sequencing and Identification
+38,"['dark web', 'web', 'dark', 'traffic', 'darknet', 'the dark', 'darknet traffic', 'classification', 'tor', 'onion']","Dark Web Traffic Classification (Tor, Onion)"
+39,"['schizophrenia', 'patients', 'with schizophrenia', 'soldiers', 'army', 'risk', 'were', 'disorders', 'psychiatric', 'schizophrenia spectrum']",Soldiers with Schizophrenia Spectrum Disorders and Army Risk
+40,"['media', 'social media', 'social', 'blogs', 'news', 'disinformation', 'propaganda', 'campaigns', 'framing', 'cyber']",Social Media Disinformation Campaigns
+41,"['audio', 'voice', 'speaker', 'speech', 'speaker identification', 'identification', 'deep', 'acoustic', 'deep learning', 'voices']",Deep Audio Speaker Identification (Deep Learning)
+42,"['violence', 'mental', 'natural language', 'natural', 'language', 'language processing', 'processing', 'victimisation', 'dv', 'risk']",Natural Language Processing for Victimization Risk Assessment (Violence Mental Health)
+43,"['iot', 'forensics', 'internet of', 'computing', 'of things', 'things', 'smart', 'internet', 'iot forensics', 'edge']",Internet of Things Forensics at Edge Computing
+44,"['underground', 'hackers', 'forums', 'cybercrime', 'underground forums', 'online', 'key hackers', 'social', 'network analysis', 'social network']",Underground Hacker Social Network Analysis
+45,"['psychiatry', 'forensic psychiatry', 'risk assessment', 'assessment', 'forensic', 'violence risk', 'artificial intelligence', 'insanity', 'ai', 'artificial']",Artificial Intelligence in Forensic Violence Risk Assessment
+46,"['fake news', 'fake', 'news', 'media', 'social media', 'covid19', 'misinformation', 'social', 'of fake', 'platforms']",Fake News & Misinformation in Social Media Platforms (Covid-19)
+47,"['handwriting', 'signatures', 'document', 'handwritten', 'forged', 'documents', 'deep', 'identification', 'of handwriting', 'deep learning']",Deep Learning-Based Handwriting Identification & Signature Forgery Detection
+48,"['accounting', 'analytics', 'forensic accounting', 'data analytics', 'big', 'big data', 'audit', 'accounting education', 'education', 'forensic']",Forensic Accounting & Big Data Analytics in Education
+49,"['emotion', 'recognition', 'deep', 'expression', 'facial', 'brain', 'deep learning', 'facial expression', 'fmri', 'expressions']",Deep Learning in Facial Expression Recognition (fMRI)
+50,"['trafficking', 'human trafficking', 'sex', 'human', 'online', 'sex trafficking', 'trafficking in', 'of human', 'opensource', 'web']",Open Source Sex Trafficking Investigation
+51,"['data policing', 'surveillance race', 'race and', 'policing surveillance', 'future of', 'enforcement the', 'rise of', 'the rise', 'race', 'of law']",Future of Racial Surveillance in Enforcement Laws
+52,"['digital', 'big', 'big data', 'forensics', 'forensic', 'storage', 'hadoop', 'digital forensics', 'storage system', 'framework']",Digital Forensics Framework for Big Data Storage (Hadoop)
+53,"['spectra', 'raman', 'spectroscopy', 'sers', 'quantification', 'drug', 'pharmaceutical', 'chemical', 'hcl', 'raman spectroscopy']","""Drug Quantification in Pharmaceuticals via Raman Spectroscopy"""
+54,"['technology', 'police', 'policing', 'technologies', 'in policing', 'officers', 'obstacles', 'police officers', 'technology in', 'satisfaction']",Technology Impact on Police Officer Satisfaction
+55,"['steganography', 'steganalysis', 'steganographic', 'image steganography', 'neural', 'images', 'convolutional', 'image', 'convolutional neural', 'hiding']",Convolutional Neural Networks for Image Steganography and Stegananalysis
+56,"['agent', 'chatbot', 'conversational', 'negobot', 'sexual', 'conversational agent', 'conversations', 'game', 'conversation', 'qsr']",Conversational AI for Sexual Game Agents (Negobot)
+57,"['media', 'social media', 'social', 'online', 'video mining', 'text', 'twitter', 'malicious intent', 'mining', 'users']",Social Media User Intent Mining
+58,"['deep', 'smart', 'iot', 'deep learning', 'internet of', 'algorithm', 'federated', 'smart grid', 'things', 'internet']",Smart IoT Federated Learning for Smart Grids
+59,"['face', 'child', 'recognition', 'human face', 'database', 'detection', 'image', 'accuracy', 'lda', 'csam']",Image-Based Child Face Recognition and Detection in Databases (LDASoft Classifier)

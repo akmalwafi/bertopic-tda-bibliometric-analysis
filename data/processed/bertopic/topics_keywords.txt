@@ -1,0 +1,45 @@
+Topic 0:
+crime, network, detection, security, social, study, research, has, criminal, in this
+
+Topic 1:
+image, images, detection, forgery, proposed, the proposed, neural, network, jpeg, convolutional
+
+Topic 2:
+face, recognition, facial, deepfake, detection, images, image, deep, feature, features
+
+Topic 3:
+video, surveillance, detection, anomaly, anomaly detection, recognition, deep, network, features, videos
+
+Topic 4:
+mass, spectrometry, mass spectrometry, chemical, were, nontargeted, workflow, analytical, characterization, gc
+
+Topic 5:
+age, dental, age estimation, estimation, neural, images, tomography, computed tomography, computed, bone
+
+Topic 6:
+fingerprint, lip, identification, iris, recognition, images, latent, print, lip print, biometric
+
+Topic 7:
+spectroscopy, body, fluid, imaging, blood, were, raman, molecular, body fluid, death
+
+Topic 8:
+audio, speech, speaker, voice, proposed, detection, the proposed, spectrogram, speaker recognition, sound
+
+Topic 9:
+signature, writer, identification, handwritten, writer identification, document, writing, documents, handwriting, signature verification
+
+Topic 10:
+species, entomology, identification, satellite, wing, images, stand, were, fly, forensic entomology
+
+Topic 11:
+genetic, dna, biogeographic, han, species, population, were, ancestry, surname, str
+
+Topic 12:
+sex, foot, sex estimation, were, measurements, bone, nasal, morphological, estimation, sex determination
+
+Topic 13:
+skin, microbiome, microbial, skin microbiome, sequencing, pmi, postmortem, bacterial, identification, hand
+
+Topic 14:
+steganalysis, steganography, steganographic, secret, stego, image, detection, hiding, audio, tree
+

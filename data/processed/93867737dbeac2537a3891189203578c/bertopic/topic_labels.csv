@@ -1,0 +1,32 @@
+Topic,Keywords,Topic_Label
+0,"['learning', 'deep', 'forensic', 'deep learning', 'artificial', 'image', 'artificial intelligence', 'images', 'intelligence', 'age']",Deep Learning for Age Estimation in Forensic Images
+1,"['network', 'network analysis', 'social network', 'networks', 'criminal', 'crime', 'violence', 'organized', 'groups', 'drug']",Organized Crime Networks Analysis (Social & Drug)
+2,"['security', 'learning', 'detection', 'cyber', 'malware', 'cybersecurity', 'network', 'deep', 'machine', 'machine learning']",Machine Learning for Cybersecurity Network Defense
+3,"['crime', 'prediction', 'learning', 'crimes', 'machine', 'machine learning', 'mining', 'data mining', 'street', 'model']",Machine Learning Crime Prediction Modeling (Street Data Mining)
+4,"['financial', 'fraud', 'learning', 'machine', 'laundering', 'machine learning', 'transactions', 'money', 'money laundering', 'detection']",Machine Learning for Money Laundering Detection
+5,"['media', 'social media', 'online', 'forums', 'cybercrime', 'underground', 'mining', 'text', 'twitter', 'web']","Online Social Media Mining & Underground Activities (Text Analysis on Twitter, Forums)"
+6,"['language', 'natural language', 'natural', 'language processing', 'processing', 'nlp', 'crime', 'text', 'violence', 'police']",Natural Language Processing for Crime Text Analysis
+7,"['predictive', 'policing', 'predictive policing', 'of predictive', 'police', 'crime', 'policing and', 'algorithms', 'about', 'policy']",Predictive Policing Algorithms & Policy
+8,"['fairness', 'recidivism', 'bias', 'models', 'learning', 'machine', 'machine learning', 'fair', 'interpretable', 'prediction']",Machine Learning Fairness in Recidivism Prediction Models
+9,"['big', 'big data', 'privacy', 'of big', 'investigation', 'analytics', 'new', 'protection', 'personal', 'health']",Big Data Privacy Protection in Personal Health Analytics
+10,"['artificial', 'artificial intelligence', 'intelligence', 'criminal', 'legal', 'justice', 'ai', 'judicial', 'intelligence in', 'law']",Artificial Intelligence in Criminal Justice and Law
+11,"['phishing', 'malicious', 'learning', 'urls', 'url', 'detection', 'phishing detection', 'deep', 'phishing attacks', 'machine']",Deep Learning for Phishing URL Detection
+12,"['ai', 'policing', 'public', 'intelligence', 'artificial', 'artificial intelligence', 'law', 'enforcement', 'technology', 'law enforcement']",Artificial Intelligence for Public Safety and Law Enforcement
+13,"['bullying', 'victimization', 'friendship', 'network', 'peer', 'defending', 'friends', 'aggression', 'were', 'network analysis']",Peer Aggression and Friendship Network Analysis
+14,"['cyberbullying', 'media', 'hate', 'hate speech', 'speech', 'social media', 'language', 'online', 'machine', 'cyberbullying detection']",Online Hate Speech Detection in Social Media
+15,"['big', 'big data', 'police', 'policing', 'of big', 'criminal', 'security', 'public', 'data policing', 'risk']",Public Big Data Security and Risk in Policing
+16,"['recidivism', 'risk', 'assessment', 'statistical', 'machine', 'machine learning', 'learning', 'predictive', 'risk assessment', 'rehabilitation']",Predictive Risk Assessment for Recidivism and Rehabilitation (Machine Learning)
+17,"['artificial intelligence', 'artificial', 'intelligence', 'ai', 'legal', 'of artificial', 'responsibility', 'of ai', 'risks', 'law']",Artificial Intelligence Legal Responsibility and Risks
+18,"['authorship', 'author', 'text', 'gender', 'language', 'linguistics', 'arabic', 'personality', 'identification', 'learning']",Authorship Identification and Personality Analysis in Arabic Language Learning
+19,"['generative', 'ai', 'intelligence', 'artificial', 'generative ai', 'agent', 'artificial intelligence', 'chatgpt', 'ton', 'genai']",Artificial Intelligence Agents: Generative Models
+20,"['legal', 'prediction', 'judgment', 'learning', 'model', 'text', 'deep', 'judicial', 'word', 'deep learning']",Deep Learning for Judicial Text Prediction
+21,"['fake news', 'social media', 'media', 'fake', 'news', 'covid19', 'disinformation', 'deep', 'platforms', 'toxic']",Fake News & Disinformation on Social Media Platforms during COVID-19
+22,"['behavior', 'friends', 'peer', 'adolescents', 'social network', 'network', 'alcohol', 'smoking', 'alcohol use', 'students']","Adolescent Social Network Behavior (Alcohol, Smoking) among Peers"
+23,"['policing', 'big', 'big data', 'governance', 'surveillance', 'algorithmic', 'regulation', 'data surveillance', 'stochastic governance', 'of big']",Big Data Policing & Governance
+24,"['crime', 'spatial', 'of crime', 'urban', 'cooffending', 'inequality', 'cities', 'segregation', 'areas', 'theft']",Urban Crime and Inequality in Segregated Areas
+25,"['digital', 'forensics', 'forensic', 'digital forensics', 'of digital', 'evidence', 'investigators', 'tools', 'investigations', 'cloud']",Digital Forensics in Cloud Investigations
+26,"['city', 'smart', 'smart city', 'big data', 'big', 'analytics', 'cities', 'data analytics', 'realtime', 'smart cities']",Smart City Big Data Analytics
+27,"['data policing', 'future of', 'race and', 'surveillance race', 'policing surveillance', 'enforcement the', 'rise of', 'the rise', 'race', 'of law']",Future of Race-based Surveillance and Policing
+28,"['victimization', 'bullying', 'adolescents', 'bullying victimization', 'factors', 'school', 'risk', 'machine', 'among', 'predictors']",Bullying Risk Factors Among Adolescents in Schools (Machine Prediction)
+29,"['design', 'ethical', 'ai', 'artificial', 'artificial intelligence', 'intelligence', 'ethics', 'environmental sciences', 'machine', 'machine learning']",Artificial Intelligence Ethics in Environmental Design
+30,"['accounting', 'big', 'forensic accounting', 'big data', 'analytics', 'audit', 'data analytics', 'forensic', 'accounting education', 'education']",Big Data Forensic Accounting Analytics & Education

@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TDA Mapper + Summary</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Inter","Segoe UI",Arial,sans-serif;
+  margin:0;
+  background:#020617;
+  color:#ffffff;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79,70,229,0.34), transparent 32%),
+    radial-gradient(circle at 88% 30%, rgba(34,211,238,0.22), transparent 30%),
+    radial-gradient(circle at 55% 100%, rgba(168,85,247,0.18), transparent 35%),
+    linear-gradient(135deg,#020617 0%,#050816 55%,#020617 100%);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  opacity:0.35;
+}
+
+.page{
+  min-height:100vh;
+  padding:55px 5%;
+}
+
+.header{
+  max-width:1700px;
+  margin:0 auto 36px auto;
+}
+
+h1{
+  margin:0 0 14px 0;
+  font-size:56px;
+  line-height:1.05;
+  color:#ffffff;
+  letter-spacing:-1.5px;
+}
+
+.subtitle{
+  color:#cbd5e1;
+  font-size:21px;
+  line-height:1.7;
+  margin:0;
+}
+
+.container{
+  max-width:1700px;
+  margin:0 auto;
+}
+
+.card{
+  border:1px solid rgba(129,140,248,0.48);
+  border-radius:22px;
+  padding:34px;
+  margin-bottom:32px;
+  background:rgba(15,23,42,0.80);
+  box-shadow:0 30px 80px rgba(0,0,0,0.35);
+  backdrop-filter:blur(18px);
+}
+
+.title{
+  font-weight:900;
+  font-size:33px;
+  margin-bottom:18px;
+  color:#ffffff;
+  letter-spacing:-0.5px;
+}
+
+.section-subtitle{
+  font-size:19px;
+  color:#cbd5e1;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+
+/* BIG TDA MAPPER GRAPH */
+.chart-container{
+  width:100%;
+  height:1150px;
+  overflow:auto;
+  border:1px solid rgba(148,163,184,0.40);
+  border-radius:18px;
+  background:#111827;
+}
+
+.chart-container iframe{
+  width:3600px;
+  height:2400px;
+  border:0;
+  display:block;
+  transform:scale(1.15);
+  transform-origin:top left;
+}
+
+.openlink,
+.back-link{
+  display:inline-block;
+  margin-top:22px;
+  color:#38bdf8;
+  font-weight:900;
+  text-decoration:none;
+  font-size:19px;
+}
+
+.openlink:hover,
+.back-link:hover{
+  color:#22d3ee;
+  text-decoration:underline;
+}
+
+.info-box{
+  background:rgba(37,99,235,0.14);
+  border-left:6px solid #38bdf8;
+  color:#dbeafe;
+  padding:24px 26px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:10px;
+  font-size:19px;
+}
+
+.warning-box{
+  background:rgba(249,115,22,0.12);
+  border-left:6px solid #f97316;
+  color:#fed7aa;
+  padding:24px 26px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:10px;
+  font-size:19px;
+}
+
+.summary-highlight{
+  background:rgba(15,23,42,0.75);
+  border:1px solid rgba(148,163,184,0.25);
+  border-radius:16px;
+  padding:22px 24px;
+  margin-top:18px;
+  font-size:18px;
+  color:#dbeafe;
+  line-height:1.8;
+}
+
+.node-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+}
+
+.toggle-btn,
+.point-btn{
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:14px 22px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:900;
+  white-space:nowrap;
+  box-shadow:0 14px 30px rgba(37,99,235,0.28);
+  transition:0.2s ease;
+}
+
+.toggle-btn:hover,
+.point-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 38px rgba(56,189,248,0.35);
+}
+
+.node-card{
+  border:1px solid rgba(129,140,248,0.35);
+  border-radius:18px;
+  padding:26px;
+  margin-top:22px;
+  background:rgba(15,23,42,0.82);
+  scroll-margin-top:24px;
+}
+
+.node-card.active-node{
+  border:2px solid #38bdf8;
+  background:rgba(37,99,235,0.18);
+}
+
+.node-title{
+  font-weight:900;
+  font-size:24px;
+  margin-bottom:12px;
+  color:#ffffff;
+}
+
+.meta{
+  font-size:17px;
+  color:#cbd5e1;
+  margin-bottom:12px;
+  line-height:1.7;
+}
+
+.raw-node-id{
+  color:#94a3b8;
+  font-size:16px;
+}
+
+.node-details{
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid rgba(148,163,184,0.25);
+}
+
+.current-node-box,
+.overlap-node-box{
+  background:rgba(15,23,42,0.82);
+  border:1px solid rgba(148,163,184,0.3);
+  border-radius:16px;
+  padding:22px;
+  margin:18px 0;
+  color:#e5e7eb;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.current-node-box{
+  background:rgba(37,99,235,0.14);
+  border-color:rgba(56,189,248,0.35);
+  color:#dbeafe;
+}
+
+.overlap-btn{
+  background:rgba(15,23,42,0.95);
+  color:#ffffff;
+  border:1px solid rgba(56,189,248,0.35);
+  border-radius:10px;
+  padding:10px 16px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:800;
+  margin:6px 6px 6px 0;
+}
+
+.overlap-btn:hover{
+  background:rgba(37,99,235,0.35);
+}
+
+.overlap-note{
+  margin-top:10px;
+  color:#cbd5e1;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.shared-doc-list,
+.related-paper-list{
+  margin:14px 0 0 0;
+  padding-left:24px;
+}
+
+.shared-doc-list li,
+.related-paper-list li{
+  margin-bottom:14px;
+  line-height:1.7;
+  font-size:17px;
+  color:#e5e7eb;
+}
+
+.shared-doc-title{
+  font-weight:900;
+  color:#ffffff;
+}
+
+.shared-doc-meta{
+  color:#cbd5e1;
+  font-size:16px;
+  margin-top:5px;
+}
+
+.insight-panel{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.insight-section{
+  background:rgba(15,23,42,0.82);
+  border:1px solid rgba(56,189,248,0.25);
+  border-radius:18px;
+  padding:24px 26px;
+}
+
+.insight-heading{
+  font-weight:900;
+  font-size:21px;
+  color:#38bdf8;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+}
+
+.insight-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  color:white;
+  font-size:16px;
+  font-weight:900;
+  margin-right:12px;
+  flex-shrink:0;
+}
+
+.insight-section p{
+  margin:0;
+  line-height:1.8;
+  color:#e5e7eb;
+  font-size:18px;
+}
+
+.keywords{
+  margin:16px 0 18px 0;
+}
+
+.keyword{
+  display:inline-block;
+  background:rgba(56,189,248,0.14);
+  color:#67e8f9;
+  border:1px solid rgba(56,189,248,0.35);
+  border-radius:999px;
+  padding:8px 14px;
+  margin:6px 8px 0 0;
+  font-size:16px;
+  font-weight:800;
+}
+
+.topic-picker-card{
+  background:rgba(15,23,42,0.80);
+  border:1px solid rgba(129,140,248,0.48);
+}
+
+.topic-picker-grid{
+  display:grid;
+  grid-template-columns:minmax(320px,460px) 1fr;
+  gap:28px;
+  align-items:start;
+}
+
+.topic-select{
+  width:100%;
+  padding:16px 18px;
+  border:1px solid rgba(56,189,248,0.45);
+  border-radius:14px;
+  font-size:17px;
+  background:#020617;
+  color:#ffffff;
+  font-weight:800;
+  outline:none;
+}
+
+.topic-select:focus{
+  border-color:#38bdf8;
+  box-shadow:0 0 0 4px rgba(56,189,248,0.14);
+}
+
+.topic-result-box{
+  background:rgba(15,23,42,0.82);
+  border:1px solid rgba(148,163,184,0.3);
+  border-radius:18px;
+  padding:24px;
+  min-height:140px;
+}
+
+.topic-result-title{
+  font-weight:900;
+  color:#ffffff;
+  margin-bottom:12px;
+  font-size:23px;
+}
+
+.topic-result-subtitle{
+  font-size:17px;
+  color:#cbd5e1;
+  line-height:1.7;
+  margin-bottom:16px;
+}
+
+.topic-cluster-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.topic-cluster-item{
+  border:1px solid rgba(56,189,248,0.25);
+  background:rgba(15,23,42,0.82);
+  border-radius:16px;
+  padding:20px;
+}
+
+.topic-cluster-head{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:8px;
+}
+
+.topic-cluster-name{
+  font-weight:900;
+  color:#38bdf8;
+  font-size:20px;
+}
+
+.topic-cluster-meta{
+  font-size:16px;
+  color:#cbd5e1;
+  line-height:1.7;
+}
+
+.topic-action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+.topic-empty{
+  color:#cbd5e1;
+  line-height:1.7;
+  font-size:17px;
+}
+
+@media(max-width:900px){
+  .page{
+    padding:28px 5%;
+  }
+
+  h1{
+    font-size:38px;
+  }
+
+  .subtitle{
+    font-size:17px;
+  }
+
+  .card{
+    padding:24px;
+  }
+
+  .title{
+    font-size:26px;
+  }
+
+  .node-header{
+    flex-direction:column;
+  }
+
+  .chart-container{
+    height:850px;
+  }
+
+  .chart-container iframe{
+    width:2400px;
+    height:1600px;
+    transform:scale(1);
+  }
+
+  .topic-picker-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <h1>TDA Mapper + Summary</h1>
+    <p class="subtitle">
+      This page combines the TDA Mapper graph with document-level shared document explanations.
+    </p>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <div class="title">What This Page Shows</div>
+      <div class="info-box">
+        The Mapper graph shows how papers are grouped and connected based on embedding similarity.
+        The summary below explains each cluster and lists the exact shared documents that also appear in other Mapper clusters.
+      </div>
+    </div>
+
+    {% if global_summary %}
+    <div class="card">
+      <div class="node-header">
+        <div>
+          <div class="title">TDA Global Insights</div>
+          <div class="section-subtitle">
+            Overall explanation of the Mapper graph structure.
+          </div>
+        </div>
+
+        <button class="toggle-btn"
+                id="global-detail-btn"
+                onclick="toggleGlobalDetails(this)">
+          View More Details
+        </button>
+      </div>
+
+      <div class="summary-highlight">
+        <strong>Quick Summary:</strong>
+        The Mapper graph contains
+        <strong>{{ global_summary.total_nodes or 0 }}</strong> cluster(s) and
+        <strong>{{ global_summary.total_edges or 0 }}</strong> connection(s).
+        The graph is
+        <strong>{{ global_summary.connectivity_type or "N/A" }}</strong>.
+      </div>
+
+      <div id="global-details" class="node-details" style="display:none;">
+
+        <div class="insight-panel">
+
+          <div class="insight-section">
+            <div class="insight-heading">
+              <span class="insight-number">1</span>
+              <span>Graph Overview</span>
+            </div>
+
+            <p>
+              The Mapper graph contains
+              <strong>{{ global_summary.total_nodes or 0 }}</strong> cluster(s)
+              and
+              <strong>{{ global_summary.total_edges or 0 }}</strong> connection(s).
+              This gives an overview of how the research papers are grouped and linked based on similarity.
+            </p>
+          </div>
+
+          <div class="insight-section">
+            <div class="insight-heading">
+              <span class="insight-number">2</span>
+              <span>Connectivity Meaning</span>
+            </div>
+
+            <p>
+              The graph is classified as
+              <strong>{{ global_summary.connectivity_type or "N/A" }}</strong>.
+
+              {% if global_summary.connectivity_type == "relatively connected" %}
+                This means many clusters are related to each other, suggesting that several research themes overlap or connect across the dataset.
+              {% elif global_summary.connectivity_type == "moderately fragmented" %}
+                This means the dataset has several separate topic groups, but some themes still connect with each other.
+              {% elif global_summary.connectivity_type == "largely fragmented" %}
+                This means many clusters are separated, suggesting that the dataset contains many distinct or unrelated research areas.
+              {% else %}
+                This describes how strongly the clusters are connected inside the Mapper graph.
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="insight-section">
+            <div class="insight-heading">
+              <span class="insight-number">3</span>
+              <span>Isolated Clusters</span>
+            </div>
+
+            <p>
+              There are
+              <strong>{{ global_summary.isolated_nodes or 0 }}</strong>
+              isolated cluster(s).
+
+              {% if global_summary.isolated_nodes and global_summary.isolated_nodes > 0 %}
+                These isolated clusters may represent niche, unique, or less-connected research topics.
+              {% else %}
+                This means most clusters have at least some connection with other research themes.
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="insight-section">
+            <div class="insight-heading">
+              <span class="insight-number">4</span>
+              <span>Largest Cluster</span>
+            </div>
+
+            <p>
+              The largest cluster contains
+              <strong>{{ global_summary.largest_cluster_size or 0 }}</strong>
+              document(s). This may indicate one of the strongest or most common research areas in the dataset.
+            </p>
+          </div>
+
+          <div class="insight-section">
+            <div class="insight-heading">
+              <span class="insight-number">5</span>
+              <span>Overall Interpretation</span>
+            </div>
+
+            <p>
+              {{ global_summary.user_summary or global_summary.summary_text or "No global interpretation available." }}
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if mapper_path %}
+    <div class="card">
+      <div class="title">TDA Mapper Graph</div>
+      <div class="section-subtitle">
+        Interactive graph of document clusters. Click a node in the graph to connect it with the cluster summary below.
+      </div>
+
+      <div class="chart-container" id="mapper-chart-container">
+        <iframe id="mapper-iframe" src="{{ url_for('view_file') }}?path={{ mapper_path }}"></iframe>
+      </div>
+
+      <a class="openlink"
+         href="{{ url_for('view_file') }}?path={{ mapper_path }}">
+        Open full Mapper graph
+      </a>
+    </div>
+    {% else %}
+    <div class="card">
+      <div class="title">No Mapper Graph Found</div>
+      <div class="warning-box">
+        Mapper graph output is missing. Please go back to the dashboard and run TDA Analysis again.
+      </div>
+    </div>
+    {% endif %}
+
+    {% if node_summaries and node_summaries|length > 0 %}
+
+    <div class="card topic-picker-card">
+      <div class="title">Explore Clusters by Topic</div>
+
+      <div class="section-subtitle">
+        Choose a BERTopic topic to see which Mapper clusters contain that topic.
+        This also shows the papers that belong to the selected topic.
+      </div>
+
+      <div class="topic-picker-grid">
+        <div>
+          <label class="section-subtitle" for="topic-picker">
+            <strong>Choose Topic</strong>
+          </label>
+
+          <select id="topic-picker" class="topic-select" onchange="showClustersForTopic(this.value)">
+            <option value="">Select a topic...</option>
+          </select>
+
+          <div class="summary-highlight">
+            <strong>How to use:</strong><br>
+            Select a topic, then click <strong>View Summary</strong> to open the cluster details,
+            or <strong>Point in Graph</strong> to highlight the cluster in the Mapper graph.
+          </div>
+        </div>
+
+        <div class="topic-result-box">
+          <div class="topic-result-title" id="topic-result-title">
+            No topic selected
+          </div>
+
+          <div class="topic-result-subtitle" id="topic-result-subtitle">
+            Select a topic from the choosebar to view related Mapper clusters and papers.
+          </div>
+
+          <div class="topic-cluster-list" id="topic-cluster-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">TDA Cluster Insights</div>
+      <div class="section-subtitle">
+        Click “View Cluster Details” to view the cluster explanation and exact shared documents.
+      </div>
+
+      <div class="warning-box">
+        Shared Documents are document-level. This means only the listed papers also appear in another Mapper cluster.
+        It does not mean every paper in the cluster overlaps.
+      </div>
+
+      {% for node in node_summaries %}
+      {% set safe_id = node.safe_node_id if node.safe_node_id else node.node_id|string|replace(' ', '_')|replace('/', '_')|replace('\\', '_')|replace('.', '_')|replace(':', '_') %}
+
+      <div class="node-card"
+           id="card-{{ safe_id }}"
+           data-node-id="{{ node.node_id }}"
+           data-safe-id="{{ safe_id }}"
+           data-cluster-name="{{ node.cluster_name }}">
+
+        <div class="node-header">
+          <div>
+            <div class="node-title">
+              {{ node.cluster_name or "Cluster" }}
+            </div>
+
+            <div class="meta">
+              <strong>Cluster:</strong> {{ node.cluster_name or "N/A" }}
+              <span class="raw-node-id">({{ node.node_id }})</span> |
+              <strong>Documents:</strong> {{ node.cluster_size }} |
+              <strong>Degree:</strong> {{ node.degree }} |
+              <strong>Structure:</strong> {{ node.structure_type }} |
+              <strong>Years:</strong> {{ node.year_text or "N/A" }} |
+              <strong>Shared Documents:</strong> {{ node.shared_document_count or 0 }}
+            </div>
+          </div>
+
+          <button class="toggle-btn"
+                  id="btn-{{ safe_id }}"
+                  onclick="toggleNodeDetails('{{ safe_id }}', this)">
+            View Cluster Details
+          </button>
+        </div>
+
+        <div id="node-{{ safe_id }}"
+             class="node-details"
+             data-node-id="{{ node.node_id }}"
+             data-safe-id="{{ safe_id }}"
+             style="display:none;">
+
+          <div class="current-node-box">
+            <strong>Current Cluster:</strong><br>
+            {{ node.cluster_name or "N/A" }}
+            <span class="raw-node-id">({{ node.node_id }})</span>
+
+            <br><br>
+
+            <button class="point-btn"
+                    onclick="focusMapperGraphNode('{{ node.node_id }}')">
+              Point to Node in Mapper Graph
+            </button>
+          </div>
+
+          {% if node.shared_documents and node.shared_documents|length > 0 %}
+          <div class="overlap-node-box">
+            <strong>Shared Documents:</strong><br>
+
+            <div class="overlap-note">
+              These are the exact documents in this cluster that also appear in another Mapper cluster.
+              This does not mean all papers in this cluster overlap.
+            </div>
+
+            <ul class="shared-doc-list">
+              {% for shared in node.shared_documents %}
+                <li>
+                  <div class="shared-doc-title">
+                    {{ shared.title }}
+                  </div>
+
+                  <div class="shared-doc-meta">
+                    {% if shared.year and shared.year != "N/A" %}
+                      Year: {{ shared.year }} |
+                    {% endif %}
+                    Shared with:
+                    <button class="overlap-btn"
+                            onclick="handleNodeClick('{{ shared.shared_with_node_id }}')">
+                      {{ shared.shared_with_cluster_name }}
+                    </button>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% else %}
+          <div class="overlap-node-box">
+            <strong>Shared Documents:</strong><br>
+            No shared documents with other clusters found.
+          </div>
+          {% endif %}
+
+          <div class="insight-panel">
+
+            <div class="insight-section">
+              <div class="insight-heading">
+                <span class="insight-number">1</span>
+                <span>Simple Insight</span>
+              </div>
+
+              <p>
+                This cluster focuses on <strong>{{ node.topic_name or "this research area" }}</strong>.
+
+                {% if node.keywords and node.keywords|length > 0 %}
+                  The main keywords, such as
+                  {% for kw in node.keywords[:3] %}
+                    <strong>{{ kw }}</strong>{% if not loop.last %}, {% endif %}
+                  {% endfor %},
+                  suggest that the papers discuss the core concepts, methods, or issues related to this topic.
+                {% else %}
+                  The available data suggests that the papers in this cluster share a similar research theme.
+                {% endif %}
+              </p>
+
+              {% if node.keywords and node.keywords|length > 0 %}
+              <div class="keywords">
+                {% for kw in node.keywords %}
+                  <span class="keyword">{{ kw }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <a class="back-link" href="{{ url_for('results_page', dataset_id=dataset_id) }}">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+</div>
+
+<script>
+const TOPIC_CLUSTER_DATA = [
+  {% if node_summaries and node_summaries|length > 0 %}
+    {% for node in node_summaries %}
+      {% if node.cluster_topics and node.cluster_topics|length > 0 %}
+        {% for topic in node.cluster_topics %}
+          {
+            topic_id: {{ topic.topic_id|tojson }},
+            topic_name: {{ topic.topic_name|tojson }},
+            document_count: {{ topic.document_count|default(0)|tojson }},
+            node_id: {{ node.node_id|tojson }},
+            safe_node_id: {{ node.safe_node_id|tojson }},
+            cluster_name: {{ node.cluster_name|tojson }},
+            cluster_size: {{ node.cluster_size|tojson }},
+            degree: {{ node.degree|tojson }},
+            structure_type: {{ node.structure_type|tojson }},
+            papers: []
+          },
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+];
+
+function makeSafeId(nodeId) {
+  return String(nodeId)
+    .replaceAll(" ", "_")
+    .replaceAll("/", "_")
+    .replaceAll("\\", "_")
+    .replaceAll(".", "_")
+    .replaceAll(":", "_");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function escapeJs(value) {
+  return String(value ?? "")
+    .replaceAll("\\", "\\\\")
+    .replaceAll("'", "\\'");
+}
+
+function getTopicKey(item) {
+  return String(item.topic_id) + "||" + String(item.topic_name || "Unknown Topic");
+}
+
+function populateTopicPicker() {
+  const select = document.getElementById("topic-picker");
+  if (!select) return;
+
+  const topicMap = new Map();
+
+  TOPIC_CLUSTER_DATA.forEach(function(item) {
+    const key = getTopicKey(item);
+
+    if (!topicMap.has(key)) {
+      topicMap.set(key, {
+        topic_id: item.topic_id,
+        topic_name: item.topic_name || "Unknown Topic",
+        cluster_count: 0,
+        paper_count: 0
+      });
+    }
+
+    const current = topicMap.get(key);
+    current.cluster_count += 1;
+    current.paper_count += Number(item.document_count || 0);
+  });
+
+  const topics = Array.from(topicMap.entries()).sort(function(a, b) {
+    return Number(a[1].topic_id) - Number(b[1].topic_id);
+  });
+
+  topics.forEach(function(pair) {
+    const key = pair[0];
+    const topic = pair[1];
+
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent =
+      "Topic " + topic.topic_id +
+      " — " + topic.topic_name +
+      " (" + topic.cluster_count + " cluster" + (topic.cluster_count > 1 ? "s" : "") +
+      ", " + topic.paper_count + " paper" + (topic.paper_count > 1 ? "s" : "") + ")";
+
+    select.appendChild(option);
+  });
+}
+
+function showClustersForTopic(topicKey) {
+  const title = document.getElementById("topic-result-title");
+  const subtitle = document.getElementById("topic-result-subtitle");
+  const list = document.getElementById("topic-cluster-list");
+
+  if (!title || !subtitle || !list) return;
+
+  list.innerHTML = "";
+
+  if (!topicKey) {
+    title.textContent = "No topic selected";
+    subtitle.textContent = "Select a topic from the choosebar to view related Mapper clusters and papers.";
+    return;
+  }
+
+  const clusters = TOPIC_CLUSTER_DATA.filter(function(item) {
+    return getTopicKey(item) === topicKey;
+  });
+
+  if (!clusters.length) return;
+
+  const first = clusters[0];
+
+  title.textContent = "Topic " + first.topic_id + " — " + first.topic_name;
+  subtitle.textContent = "This topic appears in " + clusters.length + " Mapper cluster(s).";
+
+  clusters.forEach(function(item) {
+    const div = document.createElement("div");
+    div.className = "topic-cluster-item";
+
+    div.innerHTML = `
+      <div class="topic-cluster-head">
+        <div>
+          <div class="topic-cluster-name">${escapeHtml(item.cluster_name || "Cluster")}</div>
+          <div class="topic-cluster-meta">
+            Documents: <strong>${item.cluster_size || 0}</strong> |
+            Degree: <strong>${item.degree || 0}</strong> |
+            Structure: <strong>${escapeHtml(item.structure_type || "N/A")}</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-action-row">
+        <button class="point-btn" onclick="openNodeDetailsFromGraph('${escapeJs(item.node_id)}')">
+          View Summary
+        </button>
+
+        <button class="overlap-btn" onclick="focusMapperGraphNode('${escapeJs(item.node_id)}')">
+          Point in Graph
+        </button>
+      </div>
+    `;
+
+    list.appendChild(div);
+  });
+}
+
+function toggleGlobalDetails(btn) {
+  const section = document.getElementById("global-details");
+
+  if (!section) return;
+
+  if (section.style.display === "none" || section.style.display === "") {
+    section.style.display = "block";
+    if (btn) btn.textContent = "Hide Details";
+  } else {
+    section.style.display = "none";
+    if (btn) btn.textContent = "View More Details";
+  }
+}
+
+function toggleNodeDetails(safeId, btn) {
+  const section = document.getElementById("node-" + safeId);
+
+  if (!section) return;
+
+  if (section.style.display === "none" || section.style.display === "") {
+    section.style.display = "block";
+    if (btn) btn.textContent = "Hide Details";
+  } else {
+    section.style.display = "none";
+    if (btn) btn.textContent = "View Cluster Details";
+  }
+}
+
+window.openNodeDetailsFromGraph = function(nodeId) {
+  const safeId = makeSafeId(nodeId);
+
+  const card = document.getElementById("card-" + safeId);
+  const detailSection = document.getElementById("node-" + safeId);
+  const button = document.getElementById("btn-" + safeId);
+
+  if (!card || !detailSection) return;
+
+  document.querySelectorAll(".node-card").forEach(function(el) {
+    el.classList.remove("active-node");
+  });
+
+  detailSection.style.display = "block";
+
+  if (button) {
+    button.textContent = "Hide Details";
+  }
+
+  card.classList.add("active-node");
+
+  setTimeout(function() {
+    card.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 100);
+};
+
+function focusMapperGraphNode(nodeId) {
+  try {
+    const frame = document.getElementById("mapper-iframe");
+
+    if (!frame || !frame.contentWindow) return;
+
+    frame.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    if (typeof frame.contentWindow.focusMapperNodeFromSummary === "function") {
+      setTimeout(function() {
+        frame.contentWindow.focusMapperNodeFromSummary(nodeId);
+      }, 300);
+    }
+
+  } catch (e) {
+    console.log("Mapper graph sync error:", e);
+  }
+}
+
+function handleNodeClick(nodeId) {
+  openNodeDetailsFromGraph(nodeId);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  populateTopicPicker();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+Topic 0 Label: -1 | attack | algorithm | criminal
+Keywords: suicide, social, treatment, health, factor, delinquency, peer, child, support, risk
+
+Topic 1 Label: 0 | suicide | social | treatment
+Keywords: image, feature, recognition, video, accuracy, proposed, detection, facial, camera, forensic
+
+Topic 2 Label: 1 | image | feature | recognition
+Keywords: drug, substrate, sers, human, metabolite, application, property, microbial, oral, including
+
+Topic 3 Label: 2 | drug | substrate | sers
+Keywords: population, gene, dna, genetic, forensic, age, mtdna, han, profile, hui
+
+Topic 4 Label: 3 | population | gene | dna
+Keywords: medium, social, social medium, public, identity, cannabis, tweet, ethical, online, ivory
+
+Topic 5 Label: 4 | medium | social | social medium
+Keywords: graph, crime, spatiotemporal, event, node, index, algorithm, feature, hateful, meme
+
+Topic 6 Label: 5 | graph | crime | spatiotemporal
+Keywords: trafficking, drug, illicit, trade, country, flow, wildlife, cigarette, illegal, fishing
+
+Topic 7 Label: 6 | trafficking | drug | illicit
+Keywords: legal, law, political, criminal, evidence, court, moral, conflict, case, right
+
+Topic 8 Label: 7 | legal | law | political
+Keywords: iot, attack, packet, detection, device, security, antivirus, malware, ransomware, ddos
+
+Topic 9 Label: 8 | iot | attack | packet
+Keywords: urban, spatial, nle, safety, environment, factor, livability, city, walk, crime
+

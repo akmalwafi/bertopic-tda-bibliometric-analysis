@@ -1,0 +1,100 @@
+Topic,Words,Frequency,Timestamp
+0,"expert system, expert, decision support, support system, management",1,1992
+0,"combination, theoretical, decision combination, multiple expert, serial",1,1999
+5,"handwriting, attribute, document examiner, individuality, etc",2,2002
+0,"aml, laundering, antimoney, antimoney laundering, discriminating",1,2005
+0,"agent, clue, dob, dob distribution, information source",1,2006
+2,"camera, camera source, identify camera, brand, source",1,2006
+0,"interface, forensic evidence, mining, evidence, query interface",3,2007
+3,"mtdna, mtdna data, error, quasimedian, empop",1,2007
+0,"scene, crime, attendance, crime scene, aml",2,2008
+0,"accounting, name, subliminal, intuition, accounting data",5,2009
+2,"seam, seam insertion, insertion, carving, seam carving",1,2009
+7,"compression, fingerprint image, image compression, fingerprint, wave atom",2,2009
+8,"microphone, coefficient, microphone forensics, fourier coefficient, nearsilence",1,2009
+0,"event, network forensics, flow, intelligent network, credit",6,2010
+0,"crime, crime hotspot, spatial, science, education",2,2011
+1,"phone, smart, usafe service, usafe, altogether",1,2011
+0,"competition, crime, email, find, association rule",7,2012
+7,"fiber, seat, fiber currently, optically, test",1,2012
+0,"cloud, india, look, intergang, intergang relationship",2,2013
+0,"website, insider, insider threat, theory, control theory",3,2014
+3,"nonhuman, age, anthropology, determination, forensic anthropology",1,2014
+5,"depend, author, author gender, number feature, text",1,2014
+8,"cepstrum, ensemble, spectral, spectral feature, emotion",1,2014
+0,"graduate, aode, online, eyecloud, vms",5,2015
+6,"occlusion, face occlusion, occlusion detection, atm, multitask",1,2015
+0,"affiliate, environmental, marketing, affiliate marketing, monitoring protection",9,2016
+2,"image, forgery, computational cost, computational, image forgery",4,2016
+3,"mtdna, human mtdna, population, population genetics, mtdna dbome",1,2016
+5,"instance, train model, author, author text, gender",1,2016
+6,"microexpressions, lbptop, video sequence, enabled, baseline",1,2016
+0,"crime, risk, facility, anger, risk rate",10,2017
+1,"bullet, operator, land, bullet land, matching",3,2017
+2,"image, resampling, forgery detection, forgery, detection",5,2017
+3,"year, age, dnam, prediction, site",2,2017
+6,"masked, masked face, face, face detection, detection",1,2017
+7,"enf, signal, electric, distributionlevel, location",2,2017
+0,"attack, case, film, social, security",20,2018
+1,"video, vehicle, surveillance video, event, surveillance",3,2018
+2,"camera model, jpeg, adjustment, camera, cnn",5,2018
+3,"age, age death, death, assess age, bone mineral",1,2018
+4,"fake, image, detector, fake face, adversarial",3,2018
+6,"face, chinese japanese, arbitrary view, japanese korean, japanese",2,2018
+0,"website, phishing website, detection, risky, risky sexual",16,2019
+1,"video, counting, object, weapon, detection",6,2019
+2,"initialization, image, author, filtering, license plate",4,2019
+3,"urban, microbial, metasub, sample, profile",1,2019
+4,"cgi, character, gan, fake, fake character",2,2019
+5,"handwriting, handwriting verification, verification, script, arabic",3,2019
+6,"face, similarity, face image, similarity measurement, reconstructed face",1,2019
+7,"palmprint, metasiamese network, metasiamese, palmprint recognition, obtaining",2,2019
+0,"social, call, server, body, crime",23,2020
+1,"video, surveillance, camera, security, detection",6,2020
+2,"source, image, block, printer, compression",6,2020
+3,"gender, ann, gender determination, discriminant, logistic regression",1,2020
+4,"generator, source generator, image, fake, face",1,2020
+5,"writer, handwriting, writer identification, file, fragment",5,2020
+6,"face, sketch, crossresolution, face sketch, trustworthiness",3,2020
+7,"hand, ethnicity, gender ethnicity, gender, hand image",1,2020
+8,"loss, speaker, age, speaker verification, loss function",3,2020
+0,"attack, body, iot, factor, tor",21,2021
+1,"video, camera, scene, person, distress",4,2021
+2,"image, perceptual hashing, inpainting, hashing, attack",5,2021
+3,"pollen, sample, phenotypic feature, phenotypic, specie",2,2021
+4,"autoencoder, watermarking scheme, watermarking, adversary, scheme",1,2021
+5,"writer, handwriting, software, writer identification, code",5,2021
+6,"superresolution, descriptor, face, makeup, image",2,2021
+8,"audio, speaker, mfcc, speaker identification, proposed system",2,2021
+0,"crime, fairness, time, affective, school",18,2022
+1,"video, crime, gait, smart, stateoftheart",6,2022
+2,"image, teacher model, teacher, student model, selftraining",3,2022
+3,"circular, dcnns, rna, circular rna, sex",4,2022
+4,"adversarial, sar, aes, optical, adversarial detection",4,2022
+5,"cai, code, graph, program, code authorship",1,2022
+6,"face, facial, facial recognition, ear, image",6,2022
+8,"audio, enf, enf phase, background noise, voice",3,2022
+0,"crime, news, online, risk, research",23,2023
+1,"video, detection, anomaly, tracking, surveillance",10,2023
+2,"image, forgery, splicing, image splicing, video",4,2023
+3,"bone, age, bone age, age detection, vgg",4,2023
+4,"image, deepfakes, generation, generation model, antiforensics",3,2023
+6,"facial reconstruction, facial, reconstruction, computerized, computerized facial",1,2023
+7,"fingerprint, partial fingerprint, partial, latent, majority voting",3,2023
+8,"speaker, speaker recognition, flux, eer, daubechies wavelet",1,2023
+0,"technology, cybercrime, research, url, crime",36,2024
+1,"video, video analytics, analytics, firearm, detection",6,2024
+2,"image, bloodstain, coastline, branch, computergraphics",5,2024
+3,"twin, identical, identical twin, estimation, age estimation",2,2024
+4,"image, adversarial, gans, deepfakes, attack",3,2024
+5,"age estimation, estimation, age, handwriting, attention mechanism",1,2024
+7,"raman, standoff, bloodstain, spectrum, standoff raman",3,2024
+8,"speech, synthetic speech, attribution, synthetic, spoof",2,2024
+0,"phishing, search, email, evidence, app",29,2025
+1,"iomt, wsvad, activity, gait, stream",5,2025
+2,"image, damage, fscdlcmfda, cmfd, inconsistency",4,2025
+3,"cell, age, collection, tissue, pmct",8,2025
+4,"face, image, adversarial network, generative adversarial, adversarial",5,2025
+7,"fingerprint, plastic beverage, beverage bottle, bottle, beverage",4,2025
+8,"voice, voice cloning, cloning, spoofing, attack",2,2025
+0,"cyberbullying, victim, teenager, offender, victim offender",2,2026

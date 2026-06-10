@@ -1,0 +1,93 @@
+Topic 0:
+learning, deep, forensic, deep learning, artificial, image, artificial intelligence, images, intelligence, age
+
+Topic 1:
+network, network analysis, social network, networks, criminal, crime, violence, organized, groups, drug
+
+Topic 2:
+security, learning, detection, cyber, malware, cybersecurity, network, deep, machine, machine learning
+
+Topic 3:
+crime, prediction, learning, crimes, machine, machine learning, mining, data mining, street, model
+
+Topic 4:
+financial, fraud, learning, machine, laundering, machine learning, transactions, money, money laundering, detection
+
+Topic 5:
+media, social media, online, forums, cybercrime, underground, mining, text, twitter, web
+
+Topic 6:
+language, natural language, natural, language processing, processing, nlp, crime, text, violence, police
+
+Topic 7:
+predictive, policing, predictive policing, of predictive, police, crime, policing and, algorithms, about, policy
+
+Topic 8:
+fairness, recidivism, bias, models, learning, machine, machine learning, fair, interpretable, prediction
+
+Topic 9:
+big, big data, privacy, of big, investigation, analytics, new, protection, personal, health
+
+Topic 10:
+artificial, artificial intelligence, intelligence, criminal, legal, justice, ai, judicial, intelligence in, law
+
+Topic 11:
+phishing, malicious, learning, urls, url, detection, phishing detection, deep, phishing attacks, machine
+
+Topic 12:
+ai, policing, public, intelligence, artificial, artificial intelligence, law, enforcement, technology, law enforcement
+
+Topic 13:
+bullying, victimization, friendship, network, peer, defending, friends, aggression, were, network analysis
+
+Topic 14:
+cyberbullying, media, hate, hate speech, speech, social media, language, online, machine, cyberbullying detection
+
+Topic 15:
+big, big data, police, policing, of big, criminal, security, public, data policing, risk
+
+Topic 16:
+recidivism, risk, assessment, statistical, machine, machine learning, learning, predictive, risk assessment, rehabilitation
+
+Topic 17:
+artificial intelligence, artificial, intelligence, ai, legal, of artificial, responsibility, of ai, risks, law
+
+Topic 18:
+authorship, author, text, gender, language, linguistics, arabic, personality, identification, learning
+
+Topic 19:
+generative, ai, intelligence, artificial, generative ai, agent, artificial intelligence, chatgpt, ton, genai
+
+Topic 20:
+legal, prediction, judgment, learning, model, text, deep, judicial, word, deep learning
+
+Topic 21:
+fake news, social media, media, fake, news, covid19, disinformation, deep, platforms, toxic
+
+Topic 22:
+behavior, friends, peer, adolescents, social network, network, alcohol, smoking, alcohol use, students
+
+Topic 23:
+policing, big, big data, governance, surveillance, algorithmic, regulation, data surveillance, stochastic governance, of big
+
+Topic 24:
+crime, spatial, of crime, urban, cooffending, inequality, cities, segregation, areas, theft
+
+Topic 25:
+digital, forensics, forensic, digital forensics, of digital, evidence, investigators, tools, investigations, cloud
+
+Topic 26:
+city, smart, smart city, big data, big, analytics, cities, data analytics, realtime, smart cities
+
+Topic 27:
+data policing, future of, race and, surveillance race, policing surveillance, enforcement the, rise of, the rise, race, of law
+
+Topic 28:
+victimization, bullying, adolescents, bullying victimization, factors, school, risk, machine, among, predictors
+
+Topic 29:
+design, ethical, ai, artificial, artificial intelligence, intelligence, ethics, environmental sciences, machine, machine learning
+
+Topic 30:
+accounting, big, forensic accounting, big data, analytics, audit, data analytics, forensic, accounting education, education
+

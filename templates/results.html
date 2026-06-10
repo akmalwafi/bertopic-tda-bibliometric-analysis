@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bibliometric Insights Dashboard</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Inter", "Segoe UI", Arial, sans-serif;
+  margin:0;
+  min-height:100vh;
+  background:#020617;
+  color:#ffffff;
+  overflow-x:hidden;
+}
+
+.page{
+  min-height:100vh;
+  padding:46px 7% 60px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.34), transparent 32%),
+    radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.24), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(168, 85, 247, 0.18), transparent 35%),
+    linear-gradient(135deg, #020617 0%, #050816 55%, #020617 100%);
+}
+
+.page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  opacity:0.35;
+  pointer-events:none;
+}
+
+.page::after{
+  content:"";
+  position:absolute;
+  width:850px;
+  height:850px;
+  right:-320px;
+  bottom:-360px;
+  background:radial-gradient(circle, rgba(14,165,233,0.25), transparent 65%);
+  pointer-events:none;
+}
+
+.header,
+.dashboard{
+  position:relative;
+  z-index:2;
+  max-width:1500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.header{
+  margin-bottom:34px;
+}
+
+h1{
+  margin:0 0 14px 0;
+  font-size:clamp(42px, 4vw, 68px);
+  line-height:1.05;
+  letter-spacing:-2px;
+  color:#ffffff;
+  font-weight:900;
+}
+
+.subtitle{
+  color:#a8b3c7;
+  font-size:22px;
+  line-height:1.7;
+  margin:0;
+  max-width:1200px;
+}
+
+.card{
+  border:1px solid rgba(148,163,184,0.22);
+  border-radius:22px;
+  padding:34px;
+  margin-bottom:28px;
+  background:rgba(15, 23, 42, 0.82);
+  box-shadow:0 30px 80px rgba(0,0,0,0.45);
+  backdrop-filter:blur(18px);
+}
+
+.title{
+  font-weight:900;
+  font-size:30px;
+  margin-bottom:14px;
+  color:#ffffff;
+  letter-spacing:-0.5px;
+}
+
+.section-subtitle{
+  font-size:19px;
+  color:#a8b3c7;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.flow-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:22px;
+}
+
+.status-box{
+  border-radius:16px;
+  padding:24px 26px;
+  line-height:1.7;
+  font-size:18px;
+}
+
+.status-box strong{
+  font-size:19px;
+}
+
+.success-box{
+  background:rgba(34,197,94,0.12);
+  border-left:6px solid #22c55e;
+  color:#bbf7d0;
+}
+
+.info-box{
+  background:rgba(37,99,235,0.13);
+  border-left:6px solid #38bdf8;
+  color:#bfdbfe;
+}
+
+.warning-box{
+  background:rgba(249,115,22,0.14);
+  border-left:6px solid #f97316;
+  color:#fed7aa;
+}
+
+.locked-box{
+  background:rgba(148,163,184,0.10);
+  border-left:6px solid #94a3b8;
+  color:#cbd5e1;
+}
+
+.nav-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:24px;
+  margin-top:18px;
+}
+
+.nav-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:260px;
+  text-decoration:none;
+  color:#ffffff;
+  border:1px solid rgba(148,163,184,0.22);
+  border-radius:20px;
+  padding:28px;
+  background:rgba(2,6,23,0.55);
+  box-shadow:0 18px 45px rgba(0,0,0,0.25);
+  transition:0.25s ease;
+}
+
+.nav-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(56,189,248,0.65);
+  box-shadow:0 26px 55px rgba(56,189,248,0.14);
+}
+
+.nav-card.disabled{
+  opacity:0.52;
+  pointer-events:none;
+  background:rgba(15,23,42,0.55);
+}
+
+.icon{
+  width:72px;
+  height:72px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  margin-bottom:22px;
+  box-shadow:0 18px 35px rgba(6,182,212,0.16);
+}
+
+.icon-blue{
+  background:rgba(37,99,235,0.16);
+  color:#38bdf8;
+}
+
+.icon-purple{
+  background:rgba(124,58,237,0.16);
+  color:#a78bfa;
+}
+
+.icon-green{
+  background:rgba(34,197,94,0.13);
+  color:#22c55e;
+}
+
+.nav-title{
+  font-size:26px;
+  font-weight:900;
+  margin-bottom:12px;
+  color:#ffffff;
+}
+
+.nav-desc{
+  font-size:18px;
+  line-height:1.7;
+  color:#a8b3c7;
+  margin-bottom:22px;
+}
+
+.nav-action{
+  display:inline-block;
+  color:#38bdf8;
+  font-size:18px;
+  font-weight:900;
+}
+
+.button-row{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+
+.run-tda-btn{
+  background:linear-gradient(135deg,#4f46e5,#06b6d4,#4f46e5);
+  background-size:220% 220%;
+  color:white;
+  border:none;
+  border-radius:14px;
+  padding:18px 28px;
+  cursor:pointer;
+  font-size:19px;
+  font-weight:900;
+  box-shadow:0 18px 35px rgba(79,70,229,0.28);
+  transition:0.25s ease;
+}
+
+.run-tda-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 42px rgba(79,70,229,0.42);
+}
+
+.secondary-btn{
+  display:inline-block;
+  background:rgba(2,6,23,0.55);
+  color:#38bdf8;
+  border:1px solid rgba(56,189,248,0.35);
+  border-radius:14px;
+  padding:18px 28px;
+  text-decoration:none;
+  font-size:19px;
+  font-weight:900;
+}
+
+.secondary-btn:hover{
+  background:rgba(56,189,248,0.09);
+}
+
+.mini-list{
+  margin:16px 0 0 0;
+  padding-left:26px;
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:19px;
+}
+
+.mini-list strong{
+  color:#ffffff;
+}
+
+.back-link{
+  position:relative;
+  z-index:2;
+  display:inline-block;
+  margin-top:18px;
+  color:#38bdf8;
+  font-size:19px;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.back-link:hover{
+  text-decoration:underline;
+}
+
+@media(max-width:1000px){
+  .nav-grid,
+  .flow-grid{
+    grid-template-columns:1fr;
+  }
+
+  .page{
+    padding:30px 5%;
+  }
+
+  .card{
+    padding:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <h1>Bibliometric Insights Dashboard</h1>
+    <p class="subtitle">
+      BERTopic is generated first. TDA Mapper and Persistence are generated only after you click Run TDA Analysis.
+    </p>
+  </header>
+
+  <main class="dashboard">
+
+    <div class="card">
+      <div class="title">Analysis Flow</div>
+      <div class="section-subtitle">
+        The system separates the analysis into stages so the first result loads faster and TDA can be generated only when needed.
+      </div>
+
+      <div class="flow-grid">
+        {% if bertopic_done %}
+        <div class="status-box success-box">
+          <strong>Step 1 completed:</strong><br>
+          BERTopic analysis has been generated successfully.
+        </div>
+        {% else %}
+        <div class="status-box warning-box">
+          <strong>Step 1 not found:</strong><br>
+          BERTopic output is missing. Please run the pipeline again.
+        </div>
+        {% endif %}
+
+        {% if tda_done %}
+        <div class="status-box success-box">
+          <strong>Step 2 completed:</strong><br>
+          TDA Mapper and Persistence analysis have been generated.
+        </div>
+        {% else %}
+        <div class="status-box info-box">
+          <strong>Step 2 optional:</strong><br>
+          TDA has not been generated yet. Click Run TDA Analysis when you want the Mapper graph and Persistence result.
+        </div>
+        {% endif %}
+      </div>
+
+      {% if bertopic_done and not tda_done and dataset_id %}
+      <form action="{{ url_for('run_tda', dataset_id=dataset_id) }}" method="POST">
+        <button type="submit" class="run-tda-btn">
+          Run TDA Analysis
+        </button>
+      </form>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <div class="title">Open Analysis Pages</div>
+      <div class="section-subtitle">
+        Click any section below to navigate in the same tab.
+      </div>
+
+      <div class="nav-grid">
+
+        {% if bertopic_done %}
+        <a class="nav-card" href="{{ url_for('bertopic_page', dataset_id=dataset_id) }}">
+          <div>
+            <div class="icon icon-blue">📊</div>
+            <div class="nav-title">BERTopic Analysis</div>
+            <div class="nav-desc">
+              View topic modeling outputs such as topic word scores and intertopic distance map.
+            </div>
+          </div>
+          <div class="nav-action">Open BERTopic Analysis →</div>
+        </a>
+        {% else %}
+        <div class="nav-card disabled">
+          <div>
+            <div class="icon icon-blue">📊</div>
+            <div class="nav-title">BERTopic Analysis</div>
+            <div class="nav-desc">
+              BERTopic output is not available yet.
+            </div>
+          </div>
+          <div class="nav-action">Unavailable</div>
+        </div>
+        {% endif %}
+
+        {% if tda_done %}
+        <a class="nav-card" href="{{ url_for('tda_mapper_page', dataset_id=dataset_id) }}">
+          <div>
+            <div class="icon icon-purple">🕸️</div>
+            <div class="nav-title">TDA Mapper + Summary</div>
+            <div class="nav-desc">
+              View the interactive Mapper graph together with global and cluster-level explanations.
+            </div>
+          </div>
+          <div class="nav-action">Open TDA Mapper + Summary →</div>
+        </a>
+        {% else %}
+        <div class="nav-card disabled">
+          <div>
+            <div class="icon icon-purple">🕸️</div>
+            <div class="nav-title">TDA Mapper + Summary</div>
+            <div class="nav-desc">
+              Run TDA Analysis first to generate the Mapper graph and summary.
+            </div>
+          </div>
+          <div class="nav-action">Run TDA first</div>
+        </div>
+        {% endif %}
+
+        {% if tda_done %}
+        <a class="nav-card" href="{{ url_for('persistence_page', dataset_id=dataset_id) }}">
+          <div>
+            <div class="icon icon-green">📈</div>
+            <div class="nav-title">Persistence Analysis</div>
+            <div class="nav-desc">
+              View the persistence diagram and persistence barcode generated from the embeddings.
+            </div>
+          </div>
+          <div class="nav-action">Open Persistence Analysis →</div>
+        </a>
+        {% else %}
+        <div class="nav-card disabled">
+          <div>
+            <div class="icon icon-green">📈</div>
+            <div class="nav-title">Persistence Analysis</div>
+            <div class="nav-desc">
+              Persistence outputs are generated together with TDA Analysis.
+            </div>
+          </div>
+          <div class="nav-action">Run TDA first</div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="title">What Each Page Contains</div>
+
+      <ul class="mini-list">
+        <li><strong>BERTopic Analysis:</strong> topic word score chart and topic map.</li>
+        <li><strong>TDA Mapper + Summary:</strong> Mapper graph, global graph insight, and cluster explanations.</li>
+        <li><strong>Persistence Analysis:</strong> persistence diagram and barcode.</li>
+      </ul>
+
+      {% if bertopic_done and not tda_done and dataset_id %}
+      <div class="button-row">
+        <form action="{{ url_for('run_tda', dataset_id=dataset_id) }}" method="POST">
+          <button type="submit" class="run-tda-btn">
+            Run TDA Analysis
+          </button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+
+    <a class="back-link" href="/">← Back to Upload Page</a>
+
+  </main>
+
+</div>
+
+</body>
+</html>

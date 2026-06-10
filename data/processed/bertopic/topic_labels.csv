@@ -1,0 +1,16 @@
+Topic,Keywords,Topic_Label
+0,"['crime', 'network', 'detection', 'security', 'social', 'study', 'research', 'has', 'criminal', 'in this']",Social Criminal Network Detection
+1,"['image', 'images', 'detection', 'forgery', 'proposed', 'the proposed', 'neural', 'network', 'jpeg', 'convolutional']",Neural Network-based JPEG Forgery Detection (Convolutional)
+2,"['face', 'recognition', 'facial', 'deepfake', 'detection', 'images', 'image', 'deep', 'feature', 'features']",Deepfake Detection in Images (Features)
+3,"['video', 'surveillance', 'detection', 'anomaly', 'anomaly detection', 'recognition', 'deep', 'network', 'features', 'videos']",Deep Video Anomaly Detection
+4,"['mass', 'spectrometry', 'mass spectrometry', 'chemical', 'were', 'nontargeted', 'workflow', 'analytical', 'characterization', 'gc']",Nontargeted GC-MS Workflow Characterization
+5,"['age', 'dental', 'age estimation', 'estimation', 'neural', 'images', 'tomography', 'computed tomography', 'computed', 'bone']",Neural Age Estimation from CT Images (Bone)
+6,"['fingerprint', 'lip', 'identification', 'iris', 'recognition', 'images', 'latent', 'print', 'lip print', 'biometric']",Multimodal Biometric Identification
+7,"['spectroscopy', 'body', 'fluid', 'imaging', 'blood', 'were', 'raman', 'molecular', 'body fluid', 'death']",Postmortem Raman Spectroscopic Imaging of Body Fluids
+8,"['audio', 'speech', 'speaker', 'voice', 'proposed', 'detection', 'the proposed', 'spectrogram', 'speaker recognition', 'sound']",Speaker Detection via Spectrograms
+9,"['signature', 'writer', 'identification', 'handwritten', 'writer identification', 'document', 'writing', 'documents', 'handwriting', 'signature verification']",Handwritten Signature Verification
+10,"['species', 'entomology', 'identification', 'satellite', 'wing', 'images', 'stand', 'were', 'fly', 'forensic entomology']",Forensic Wing-Image Satellite Entomology
+11,"['genetic', 'dna', 'biogeographic', 'han', 'species', 'population', 'were', 'ancestry', 'surname', 'str']",Han DNA Biogeographic Population Ancestry Surname STR Analysis
+12,"['sex', 'foot', 'sex estimation', 'were', 'measurements', 'bone', 'nasal', 'morphological', 'estimation', 'sex determination']",Sex Bone Morphology Estimation
+13,"['skin', 'microbiome', 'microbial', 'skin microbiome', 'sequencing', 'pmi', 'postmortem', 'bacterial', 'identification', 'hand']",Postmortem Hand Skin Microbiome Sequencing (PMI Identification)
+14,"['steganalysis', 'steganography', 'steganographic', 'secret', 'stego', 'image', 'detection', 'hiding', 'audio', 'tree']",Steganographic Image Detection Tree (Audio)

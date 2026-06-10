@@ -1,0 +1,9 @@
+{
+  "total_nodes": 134,
+  "total_edges": 209,
+  "isolated_nodes": 21,
+  "largest_cluster_size": 37,
+  "connectivity_type": "moderately fragmented",
+  "summary_text": "The Mapper graph contains 134 clusters and 209 connections. It is moderately fragmented, with 21 isolated clusters. The largest cluster contains 37 document(s), indicating a dominant topic region.",
+  "user_summary": "This TDA graph contains 134 cluster(s). The graph has several separate groups, suggesting the dataset contains multiple distinct themes. There are 21 isolated cluster(s), and the largest cluster contains 37 document(s), which may represent one of the main topic areas."
+}

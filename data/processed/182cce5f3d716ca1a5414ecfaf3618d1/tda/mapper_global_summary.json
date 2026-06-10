@@ -1,0 +1,9 @@
+{
+  "total_nodes": 71,
+  "total_edges": 142,
+  "isolated_nodes": 2,
+  "largest_cluster_size": 25,
+  "connectivity_type": "relatively connected",
+  "summary_text": "The Mapper graph contains 71 clusters and 142 connections. It is relatively connected, with 2 isolated clusters. The largest cluster contains 25 document(s), indicating a dominant topic region.",
+  "user_summary": "This TDA graph contains 71 cluster(s). The graph is fairly connected, suggesting many topics are related or transition into one another. There are 2 isolated cluster(s), and the largest cluster contains 25 document(s), which may represent one of the main topic areas."
+}

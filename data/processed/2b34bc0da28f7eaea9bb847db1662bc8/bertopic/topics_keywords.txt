@@ -1,0 +1,39 @@
+Topic 0:
+image, images, our, model, method, generation, network, characters, character, style
+
+Topic 1:
+media, production, japan, of japanese, article, global, cultural, industry, italy, this article
+
+Topic 2:
+gender, characters, female, girl, queer, cosplay, media, animacy, magical, norms
+
+Topic 3:
+tourism, pilgrimage, anime tourism, tourists, otaku, japan, destination, cultural, anime pilgrimage, contents
+
+Topic 4:
+students, language, japanese language, learning, listening, learners, education, and anime, academic, english
+
+Topic 5:
+religious, cultural, spiritual, religion, article, theological, japan, one, oni, sermons
+
+Topic 6:
+art, series, limited, his, article, lamarre, manga anime, be, movement, limited animation
+
+Topic 7:
+robot, robots, social, human, interaction, face, design, emotion, an anime, users
+
+Topic 8:
+audio, recommendation, information, users, system, terms, retrieval, recommendations, using, genre
+
+Topic 9:
+reality, mecha, technology, robot, robot anime, virtual, lain, virtual reality, anime wong, wong
+
+Topic 10:
+cultural, community, moral, digital, youth, identity, fans, media, consumption, ethical
+
+Topic 11:
+fan, fandom, cultural, fansubbing, consumption, cultural consumption, subtitling, conventions, fans, fansubs
+
+Topic 12:
+problematic, online anime, online, were, watching, parents, teenagers, consumers, use, children
+

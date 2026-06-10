@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BERTopic Analysis</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Inter","Segoe UI",Arial,sans-serif;
+  margin:0;
+  background:#020617;
+  color:#ffffff;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79,70,229,0.34), transparent 32%),
+    radial-gradient(circle at 88% 30%, rgba(34,211,238,0.22), transparent 30%),
+    radial-gradient(circle at 55% 100%, rgba(168,85,247,0.18), transparent 35%),
+    linear-gradient(135deg,#020617 0%,#050816 55%,#020617 100%);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  opacity:0.35;
+}
+
+.page{
+  min-height:100vh;
+  padding:55px 5%;
+}
+
+.header{
+  max-width:1700px;
+  margin:0 auto 36px auto;
+}
+
+h1{
+  margin:0 0 14px 0;
+  font-size:56px;
+  line-height:1.05;
+  color:#ffffff;
+  letter-spacing:-1.5px;
+}
+
+.subtitle{
+  color:#cbd5e1;
+  font-size:21px;
+  line-height:1.7;
+  margin:0;
+}
+
+.container{
+  max-width:1700px;
+  margin:0 auto;
+}
+
+.card{
+  border:1px solid rgba(129,140,248,0.48);
+  border-radius:22px;
+  padding:34px;
+  margin-bottom:32px;
+  background:rgba(15,23,42,0.80);
+  box-shadow:0 30px 80px rgba(0,0,0,0.35);
+  backdrop-filter:blur(18px);
+}
+
+.card:has(.dataset-id){
+  display:none;
+}
+
+.title{
+  font-weight:900;
+  font-size:33px;
+  margin-bottom:18px;
+  color:#ffffff;
+  letter-spacing:-0.5px;
+}
+
+.section-subtitle{
+  font-size:19px;
+  color:#cbd5e1;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+
+.dataset-id{
+  display:none;
+}
+
+.info-box{
+  background:rgba(37,99,235,0.14);
+  border-left:6px solid #38bdf8;
+  color:#dbeafe;
+  padding:24px 26px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:10px;
+  font-size:19px;
+}
+
+.warning-box{
+  background:rgba(249,115,22,0.12);
+  border-left:6px solid #f97316;
+  color:#fed7aa;
+  padding:24px 26px;
+  border-radius:16px;
+  line-height:1.8;
+  font-size:19px;
+}
+
+/* ===========================
+   BIG CHART / IFRAME SECTION
+   =========================== */
+
+.chart-container{
+  width:100%;
+  height:1050px;
+  overflow:auto;
+  border:1px solid rgba(148,163,184,0.40);
+  border-radius:18px;
+  background:#ffffff;
+}
+
+/* make BERTopic generated HTML much bigger */
+.chart-container iframe{
+  width:3400px;
+  height:2200px;
+  border:0;
+  display:block;
+  transform:scale(1.18);
+  transform-origin:top left;
+}
+
+/* special bigger layout for topics map */
+.card:has(.title)::after{
+  content:"";
+}
+
+.card .title{
+  position:relative;
+}
+
+.openlink{
+  display:inline-block;
+  margin-top:22px;
+  color:#38bdf8;
+  font-weight:900;
+  text-decoration:none;
+  font-size:19px;
+}
+
+.openlink:hover{
+  color:#22d3ee;
+  text-decoration:underline;
+}
+
+.back-link{
+  display:inline-block;
+  margin-top:22px;
+  color:#38bdf8;
+  font-weight:900;
+  text-decoration:none;
+  font-size:19px;
+}
+
+.back-link:hover{
+  color:#22d3ee;
+  text-decoration:underline;
+}
+
+/* ===========================
+   TOPIC PERCENTAGE CHART
+   =========================== */
+
+.percentage-chart{
+  margin-top:26px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.percentage-row{
+  display:grid;
+  grid-template-columns:380px 1fr 120px;
+  gap:26px;
+  align-items:center;
+}
+
+.percentage-label{
+  font-size:20px;
+  font-weight:900;
+  color:#ffffff;
+  line-height:1.4;
+}
+
+.percentage-label span{
+  display:block;
+  color:#cbd5e1;
+  font-size:16px;
+  font-weight:600;
+  margin-top:6px;
+}
+
+.percentage-bar-bg{
+  width:100%;
+  height:30px;
+  background:rgba(148,163,184,0.28);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.percentage-bar{
+  height:100%;
+  background:linear-gradient(135deg,#4f46e5,#06b6d4);
+  border-radius:999px;
+  box-shadow:0 0 22px rgba(56,189,248,0.35);
+}
+
+.percentage-value{
+  font-size:21px;
+  font-weight:900;
+  color:#38bdf8;
+  text-align:right;
+}
+
+.top-topic-box{
+  background:rgba(34,197,94,0.12);
+  border-left:6px solid #22c55e;
+  color:#bbf7d0;
+  padding:24px 26px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:18px;
+  font-size:19px;
+}
+
+.percentage-note{
+  background:rgba(15,23,42,0.75);
+  border:1px solid rgba(148,163,184,0.25);
+  color:#dbeafe;
+  padding:22px 24px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:24px;
+  font-size:18px;
+}
+
+/* ===========================
+   TOPIC TIMELINE
+   =========================== */
+
+.timeline-scale-box{
+  background:rgba(37,99,235,0.14);
+  border-left:6px solid #38bdf8;
+  color:#dbeafe;
+  padding:22px 24px;
+  border-radius:16px;
+  line-height:1.8;
+  margin-top:18px;
+  font-size:19px;
+}
+
+.timeline-chart{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.timeline-row{
+  border:1px solid rgba(129,140,248,0.35);
+  border-radius:18px;
+  padding:26px;
+  background:rgba(15,23,42,0.82);
+}
+
+.timeline-row-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.timeline-label{
+  font-size:21px;
+  font-weight:900;
+  color:#ffffff;
+  line-height:1.4;
+}
+
+.timeline-label span{
+  display:block;
+  color:#cbd5e1;
+  font-size:17px;
+  font-weight:600;
+  margin-top:6px;
+}
+
+.timeline-status{
+  font-size:16px;
+  font-weight:900;
+  border-radius:999px;
+  padding:10px 18px;
+  white-space:nowrap;
+}
+
+.status-recent{
+  background:rgba(34,197,94,0.14);
+  color:#bbf7d0;
+  border:1px solid rgba(34,197,94,0.35);
+}
+
+.status-long{
+  background:rgba(124,58,237,0.18);
+  color:#ddd6fe;
+  border:1px solid rgba(167,139,250,0.35);
+}
+
+.status-older{
+  background:rgba(249,115,22,0.14);
+  color:#fed7aa;
+  border:1px solid rgba(249,115,22,0.35);
+}
+
+.timeline-meta-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.timeline-meta-item{
+  background:rgba(15,23,42,0.75);
+  border:1px solid rgba(148,163,184,0.25);
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:16px;
+  color:#cbd5e1;
+  line-height:1.5;
+}
+
+.timeline-meta-item strong{
+  display:block;
+  color:#ffffff;
+  font-size:22px;
+  margin-top:4px;
+}
+
+.timeline-track{
+  position:relative;
+  height:30px;
+  background:rgba(148,163,184,0.28);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.timeline-range{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:linear-gradient(135deg,#7c3aed,#38bdf8);
+  border-radius:999px;
+  box-shadow:0 0 22px rgba(124,58,237,0.35);
+}
+
+.timeline-guide{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+  font-size:16px;
+  color:#cbd5e1;
+  font-weight:800;
+}
+
+.timeline-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:20px;
+  margin-top:22px;
+}
+
+.timeline-summary-box{
+  background:rgba(15,23,42,0.75);
+  border:1px solid rgba(148,163,184,0.25);
+  border-radius:16px;
+  padding:22px;
+  line-height:1.8;
+  font-size:18px;
+  color:#dbeafe;
+}
+
+.timeline-summary-box strong{
+  color:#ffffff;
+}
+
+img{
+  max-width:100%;
+  border:1px solid rgba(148,163,184,0.35) !important;
+  border-radius:18px !important;
+}
+
+@media(max-width:900px){
+  .page{
+    padding:28px 5%;
+  }
+
+  h1{
+    font-size:38px;
+  }
+
+  .subtitle{
+    font-size:17px;
+  }
+
+  .card{
+    padding:24px;
+  }
+
+  .title{
+    font-size:26px;
+  }
+
+  .chart-container{
+    height:760px;
+  }
+
+  .chart-container iframe{
+    width:2300px;
+    height:1500px;
+    transform:scale(1);
+  }
+
+  .percentage-row{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .percentage-value{
+    text-align:left;
+  }
+
+  .timeline-row-header{
+    flex-direction:column;
+  }
+
+  .timeline-meta-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .timeline-summary-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <h1>BERTopic Analysis</h1>
+    <p class="subtitle">
+      This page shows the topic modeling results generated first from the uploaded BibTeX dataset.
+    </p>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <div class="title">What This Page Shows</div>
+      <div class="info-box">
+        BERTopic groups research papers into topics based on semantic similarity.
+        The charts below help users understand the main topic keywords, topic distribution, and topic activity over publication years.
+      </div>
+    </div>
+
+    {% if topic_percentage_data and topic_percentage_data|length > 0 %}
+    <div class="card">
+      <div class="title">Topic Distribution by Percentage</div>
+
+      <div class="section-subtitle">
+        This chart shows the percentage of documents assigned to each BERTopic topic.
+        A higher percentage means the topic appears more frequently in the uploaded bibliometric dataset.
+        Topic -1 is excluded because it represents outlier or unclassified documents.
+      </div>
+
+      {% set top_topic = topic_percentage_data[0] %}
+
+      <div class="top-topic-box">
+        <strong>Highest Topic:</strong>
+        Topic {{ top_topic.topic_id }} — {{ top_topic.topic_name }}
+        has the highest proportion with
+        <strong>{{ top_topic.percentage }}%</strong>
+        of the classified documents
+        (<strong>{{ top_topic.count }}</strong> paper{% if top_topic.count > 1 %}s{% endif %}).
+      </div>
+
+      <div class="percentage-chart">
+        {% for topic in topic_percentage_data %}
+        <div class="percentage-row">
+
+          <div class="percentage-label">
+            Topic {{ topic.topic_id }}
+            <span>{{ topic.topic_name }}</span>
+          </div>
+
+          <div class="percentage-bar-bg">
+            <div class="percentage-bar"
+                 style="width: {{ topic.percentage }}%;">
+            </div>
+          </div>
+
+          <div class="percentage-value">
+            {{ topic.percentage }}%
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="percentage-note">
+        <strong>Interpretation:</strong>
+        The topic with the highest percentage represents the most dominant research theme in the uploaded dataset.
+        Smaller percentages may indicate niche or less frequent research areas.
+      </div>
+    </div>
+    {% endif %}
+
+    {% if topic_timeline_data and topic_timeline_data|length > 0 %}
+    <div class="card">
+      <div class="title">Topic Timeline by Publication Year</div>
+
+      <div class="section-subtitle">
+        This section shows when each topic first appeared, the latest year it appears, and how long the topic has been active.
+      </div>
+
+      {% set most_recent = topic_timeline_data|max(attribute='newest_year') %}
+      {% set oldest_topic = topic_timeline_data|min(attribute='oldest_year') %}
+      {% set longest_topic = topic_timeline_data|max(attribute='year_range') %}
+
+      <div class="timeline-scale-box">
+        <strong>How to read this chart:</strong><br>
+        All purple bars end at the right side to make comparison easier.
+        A longer purple bar means the topic has existed for more years.
+        The actual start and latest year are shown in each topic card.
+      </div>
+
+      <div class="timeline-summary-grid">
+        <div class="timeline-summary-box">
+          <strong>Most Recent Topic</strong><br>
+          Topic {{ most_recent.topic_id }} — {{ most_recent.topic_name }}<br>
+          Latest paper year: <strong>{{ most_recent.newest_year }}</strong>
+        </div>
+
+        <div class="timeline-summary-box">
+          <strong>Oldest Topic</strong><br>
+          Topic {{ oldest_topic.topic_id }} — {{ oldest_topic.topic_name }}<br>
+          First appeared in: <strong>{{ oldest_topic.oldest_year }}</strong>
+        </div>
+
+        <div class="timeline-summary-box">
+          <strong>Longest-Running Topic</strong><br>
+          Topic {{ longest_topic.topic_id }} — {{ longest_topic.topic_name }}<br>
+          Active from <strong>{{ longest_topic.oldest_year }}</strong>
+          to <strong>{{ longest_topic.newest_year }}</strong>
+        </div>
+      </div>
+
+      <div class="timeline-chart">
+        {% for topic in topic_timeline_data %}
+
+          {% set max_duration = longest_topic.year_range %}
+
+          {% if max_duration <= 0 %}
+            {% set width_percent = 25 %}
+          {% else %}
+            {% set width_percent = (topic.year_range / max_duration * 100) %}
+          {% endif %}
+
+          {% set left_percent = 100 - width_percent %}
+
+          {% if topic.year_range >= 10 %}
+            {% set status_text = "Long-running topic" %}
+            {% set status_class = "status-long" %}
+          {% elif topic.newest_year == most_recent.newest_year and topic.year_range <= 6 %}
+            {% set status_text = "Recent / emerging topic" %}
+            {% set status_class = "status-recent" %}
+          {% elif topic.newest_year < most_recent.newest_year %}
+            {% set status_text = "Less recent topic" %}
+            {% set status_class = "status-older" %}
+          {% else %}
+            {% set status_text = "Active topic" %}
+            {% set status_class = "status-recent" %}
+          {% endif %}
+
+          <div class="timeline-row">
+
+            <div class="timeline-row-header">
+              <div class="timeline-label">
+                Topic {{ topic.topic_id }}
+                <span>{{ topic.topic_name }}</span>
+              </div>
+
+              <div class="timeline-status {{ status_class }}">
+                {{ status_text }}
+              </div>
+            </div>
+
+            <div class="timeline-meta-grid">
+              <div class="timeline-meta-item">
+                Started
+                <strong>{{ topic.oldest_year }}</strong>
+              </div>
+
+              <div class="timeline-meta-item">
+                Latest
+                <strong>{{ topic.newest_year }}</strong>
+              </div>
+
+              <div class="timeline-meta-item">
+                Duration
+                <strong>{{ topic.year_range }} year{% if topic.year_range > 1 %}s{% endif %}</strong>
+              </div>
+
+              <div class="timeline-meta-item">
+                Papers
+                <strong>{{ topic.count }}</strong>
+              </div>
+            </div>
+
+            <div class="timeline-track">
+              <div class="timeline-range"
+                   style="left: {{ left_percent }}%; width: {{ width_percent if width_percent > 8 else 8 }}%;">
+              </div>
+            </div>
+
+            <div class="timeline-guide">
+              <span>Shorter history</span>
+              <span>Longer history</span>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="percentage-note">
+        <strong>Interpretation:</strong>
+        A longer purple bar means the topic has been studied across more years.
+        A short bar with a recent latest year may indicate an emerging topic.
+        A topic labelled as less recent does not reach the latest publication year in the dataset.
+      </div>
+    </div>
+    {% endif %}
+
+    {% if outputs and outputs|length > 0 %}
+
+      {% for name, path in outputs.items() %}
+      <div class="card">
+        <div class="title">{{ name }}</div>
+
+        {% if "Barchart" in name %}
+        <div class="section-subtitle">
+          This chart shows the most important keywords for each topic.
+          Higher word scores indicate stronger importance inside that topic.
+        </div>
+        {% elif "Topics Map" in name %}
+        <div class="section-subtitle">
+          This map shows the distance between topics.
+          Topics that are closer together are more semantically related.
+        </div>
+        {% elif "Intertopic" in name or "Distance" in name %}
+        <div class="section-subtitle">
+          This intertopic distance map shows how close or far the discovered topics are from each other.
+          Topics placed closer together are more related, while topics farther apart are more distinct.
+        </div>
+        {% else %}
+        <div class="section-subtitle">
+          BERTopic visualization output.
+        </div>
+        {% endif %}
+
+        {% if path.endswith('.html') %}
+        <div class="chart-container">
+          <iframe src="{{ url_for('view_file') }}?path={{ path }}"></iframe>
+        </div>
+
+        <a class="openlink"
+           href="{{ url_for('view_file') }}?path={{ path }}">
+          Open full chart
+        </a>
+
+        {% elif path.endswith('.png') or path.endswith('.jpg') or path.endswith('.jpeg') or path.endswith('.gif') or path.endswith('.svg') %}
+        <img src="{{ url_for('view_file') }}?path={{ path }}"
+             alt="{{ name }}">
+
+        {% else %}
+        <a class="openlink"
+           href="{{ url_for('view_file') }}?path={{ path }}">
+          Open file
+        </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+    {% else %}
+
+    <div class="card">
+      <div class="title">No BERTopic Output Found</div>
+      <div class="warning-box">
+        BERTopic output files are missing. Please go back to the upload page and run the analysis again.
+      </div>
+    </div>
+
+    {% endif %}
+
+    <a class="back-link" href="{{ url_for('results_page', dataset_id=dataset_id) }}">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+</div>
+
+</body>
+</html>

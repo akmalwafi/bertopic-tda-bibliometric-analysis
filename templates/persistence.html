@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Persistence Analysis</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f6f8fc;
+  color:#1f2937;
+}
+
+.page{
+  min-height:100vh;
+  padding:28px;
+}
+
+.header{
+  max-width:1200px;
+  margin:0 auto 24px auto;
+}
+
+h1{
+  margin:0 0 8px 0;
+  font-size:32px;
+  color:#111827;
+}
+
+.subtitle{
+  color:#6b7280;
+  font-size:15px;
+  line-height:1.6;
+  margin:0;
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.card{
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:20px;
+  background:white;
+  box-shadow:0 3px 12px rgba(0,0,0,0.06);
+}
+
+.title{
+  font-weight:800;
+  font-size:19px;
+  margin-bottom:10px;
+  color:#111827;
+}
+
+.section-subtitle{
+  font-size:14px;
+  color:#6b7280;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.dataset-id{
+  font-family:Consolas, monospace;
+  color:#1d4ed8;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:10px;
+  padding:10px 12px;
+  word-break:break-all;
+  margin-top:10px;
+}
+
+.info-box{
+  background:#eff6ff;
+  border-left:5px solid #2563eb;
+  color:#1e3a8a;
+  padding:14px 16px;
+  border-radius:10px;
+  line-height:1.6;
+  margin-top:10px;
+}
+
+.warning-box{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+  color:#7c2d12;
+  padding:14px 16px;
+  border-radius:10px;
+  line-height:1.6;
+  margin-top:10px;
+}
+
+.image-box{
+  width:100%;
+  overflow:auto;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  background:#ffffff;
+  padding:12px;
+}
+
+.image-box img{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border-radius:10px;
+}
+
+.openlink{
+  display:inline-block;
+  margin-top:12px;
+  color:#2563eb;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.openlink:hover{
+  text-decoration:underline;
+}
+
+.back-link{
+  display:inline-block;
+  margin-top:14px;
+  color:#2563eb;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.back-link:hover{
+  text-decoration:underline;
+}
+
+.explain-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:14px;
+  margin-top:14px;
+}
+
+.explain-card{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:14px 16px;
+}
+
+.explain-card strong{
+  display:block;
+  color:#111827;
+  margin-bottom:8px;
+}
+
+.explain-card p{
+  margin:0;
+  color:#4b5563;
+  line-height:1.6;
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .page{
+    padding:20px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .explain-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <h1>Persistence Analysis</h1>
+    <p class="subtitle">
+      This page shows the persistence diagram and barcode generated from the document embeddings.
+    </p>
+  </header>
+
+  <main class="container">
+
+    {% if dataset_id %}
+    <div class="card">
+      <div class="title">Dataset ID</div>
+      <div class="dataset-id">{{ dataset_id }}</div>
+    </div>
+    {% endif %}
+
+    <div class="card">
+      <div class="title">What This Page Shows</div>
+
+      <div class="info-box">
+        Persistence analysis is part of Topological Data Analysis. It helps show whether the dataset has strong clusters,
+        connected structures, or possible holes/patterns in the embedding space.
+      </div>
+
+      <div class="explain-grid">
+        <div class="explain-card">
+          <strong>Persistence Diagram</strong>
+          <p>
+            Shows when topological features appear and disappear. Points that are far from the diagonal usually represent stronger or more persistent structures.
+          </p>
+        </div>
+
+        <div class="explain-card">
+          <strong>Persistence Barcode</strong>
+          <p>
+            Shows the lifetime of each topological feature as a bar. Longer bars usually indicate more meaningful or stable patterns.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {% if outputs and outputs|length > 0 %}
+
+      {% for name, path in outputs.items() %}
+      <div class="card">
+        <div class="title">{{ name }}</div>
+
+        {% if "Diagram" in name %}
+        <div class="section-subtitle">
+          The persistence diagram visualizes topological features as birth-death points.
+          Points farther from the diagonal may indicate stronger structures in the dataset.
+        </div>
+        {% elif "Barcode" in name %}
+        <div class="section-subtitle">
+          The persistence barcode shows how long each feature persists.
+          Longer bars may indicate more stable clusters or structures.
+        </div>
+        {% else %}
+        <div class="section-subtitle">
+          Persistence analysis output.
+        </div>
+        {% endif %}
+
+        {% if path.endswith('.png') or path.endswith('.jpg') or path.endswith('.jpeg') or path.endswith('.gif') or path.endswith('.svg') %}
+        <div class="image-box">
+          <img src="{{ url_for('view_file') }}?path={{ path }}"
+               alt="{{ name }}">
+        </div>
+
+        <a class="openlink"
+           href="{{ url_for('view_file') }}?path={{ path }}">
+          Open full image
+        </a>
+
+        {% else %}
+        <a class="openlink"
+           href="{{ url_for('view_file') }}?path={{ path }}">
+          Open file
+        </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+    {% else %}
+
+    <div class="card">
+      <div class="title">No Persistence Output Found</div>
+      <div class="warning-box">
+        Persistence output files are missing. Please go back to the dashboard and run TDA Analysis again.
+      </div>
+    </div>
+
+    {% endif %}
+
+    <a class="back-link" href="{{ url_for('results_page', dataset_id=dataset_id) }}">
+      ← Back to Dashboard
+    </a>
+
+  </main>
+
+</div>
+
+</body>
+</html>

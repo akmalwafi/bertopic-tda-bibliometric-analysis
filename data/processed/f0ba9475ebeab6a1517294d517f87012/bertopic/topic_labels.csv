@@ -1,0 +1,26 @@
+Topic,Keywords,Topic_Label
+0,"['ai', 'law', 'legal', 'criminal', 'technology', 'justice', 'digital', 'policing', 'tools', 'systems']",AI and Digital Legal Systems for Criminal Justice Technology
+1,"['social', 'network analysis', 'social network', 'criminal', 'organized', 'gang', 'groups', 'violence', 'structure', 'members']",Organized Crime Structures in Social Network Analysis
+2,"['recidivism', 'fairness', 'risk', 'bias', 'assessment', 'predictive', 'criminal', 'factors', 'prediction', 'justice']",Predictive Criminal Justice Fairness and Bias in Recidivism Risk Assessment
+3,"['big', 'big data', 'policing', 'of big', 'surveillance', 'police', 'new', 'analytics', 'security', 'data policing']",Big Data Policing Analytics & Surveillance Security
+4,"['street', 'prediction', 'crimes', 'urban', 'spatial', 'city', 'of crime', 'crime prediction', 'theft', 'predictive']",Urban Crime Prediction in Spatial Context
+5,"['media', 'cyberbullying', 'social', 'social media', 'news', 'victimization', 'online', 'bullying', 'twitter', 'language']",Online Social Media Victimization Language & Behavior
+6,"['malware', 'security', 'detection', 'deep', 'deep learning', 'attacks', 'intrusion', 'iot', 'traffic', 'cyber']",Deep Learning Malware Detection for IoT Security
+7,"['fraud', 'financial', 'transactions', 'laundering', 'detection', 'money', 'credit', 'fraud detection', 'money laundering', 'blockchain']",Financial Transaction Detection & Blockchain Anti-Money Laundering
+8,"['language', 'text', 'legal', 'classification', 'natural language', 'language processing', 'natural', 'nlp', 'police', 'prediction']",Natural Language Legal Classification (NLP) for Police Prediction
+9,"['social', 'victimization', 'bullying', 'friends', 'peer', 'friendship', 'social network', 'behavior', 'adolescents', 'students']",Peer Victimization and Friendship in Adolescent Social Networks
+10,"['predictive', 'predictive policing', 'policing', 'of predictive', 'police', 'algorithmic', 'policing and', 'protection', 'officer', 'policing predictive']",Predictive Algorithmic Policing and Protection
+11,"['cybercrime', 'online', 'mining', 'web', 'social', 'forums', 'underground', 'text', 'video', 'cyber']",Online Underground Cyber Activities Mining
+12,"['cyber', 'cybersecurity', 'threat', 'ai', 'security', 'cyber threat', 'attack', 'cybercrime', 'attacks', 'cyberattacks']",Cybersecurity AI Threats and Attacks
+13,"['detection', 'deep learning', 'deep', 'surveillance', 'video', 'abnormal', 'surveillance system', 'abnormal behavior', 'behavior', 'traffic']",Deep Learning Video Surveillance System
+14,"['age', 'estimation', 'sex', 'sex estimation', 'radiographs', 'deep learning', 'dental', 'deep', 'forensic', 'gender']",Deep Learning Dental Sex & Age Estimation for Forensics
+15,"['ai', 'forensic', 'forensics', 'digital forensics', 'digital', 'in forensic', 'xai', 'ancestry', 'experts', 'dna']",Digital Forensics & AI-based Expert Systems
+16,"['mining', 'data mining', 'clustering', 'police', 'crime analysis', 'of crime', 'mining and', 'text', 'crimes', 'of data']",Data Mining for Police Crime Analysis and Text Clustering
+17,"['authorship', 'text', 'linguistics', 'arabic', 'language', 'personality', 'linguistic', 'author', 'gender', 'language processing']",Arabic Author Personality Analysis through Linguistics
+18,"['smart', 'city', 'big data', 'big', 'smart city', 'analytics', 'cities', 'data analytics', 'realtime', 'smart cities']",Smart City Data Analytics
+19,"['language', 'language processing', 'natural language', 'natural', 'ontology', 'documents', 'digital', 'knowledge', 'nlp', 'corpus']",Digital Language Processing & Ontology for Knowledge Extraction from Documents
+20,"['deepfake', 'deep', 'images', 'fake', 'image', 'deep learning', 'detection', 'art', 'neural', 'deepfake detection']",Deep Learning-Based Deepfake Image Detection
+21,"['forensic', 'postmortem', 'pathology', 'in forensic', 'forensic pathology', 'postmortem interval', 'interval', 'were', 'estimation', 'forensic odontology']",Forensic Postmortem Interval Estimation (Includes Forensic Pathology and Odontology)
+22,"['signatures', 'quality', 'deep learning', 'deep', 'fingerprint', 'documents', 'image', 'identification', 'handwritten', 'forged']",Deep Learning Document/Image Fingerprinting for Handwritten Identification and Forgery Detection
+23,"['phishing', 'malicious', 'urls', 'url', 'websites', 'emails', 'login', 'email', 'features', 'split']",Malicious URL Features for Phishing Websites and Emails
+24,"['audio', 'acoustic', 'speech', 'speaker', 'speaker identification', 'deep', 'voice', 'sounds', 'detection', 'deep learning']",Deep Learning Speaker Identification in Acoustic Audio

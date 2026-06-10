@@ -1,0 +1,546 @@
+<h2>Topic Change Report (Word Drift)</h2><p>Shows how each topic's top words (topic name) changes between years.</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Topic ID</th>
+      <th>From Year</th>
+      <th>To Year</th>
+      <th>Docs (From)</th>
+      <th>Docs (To)</th>
+      <th>Topic Name (From)</th>
+      <th>Topic Name (To)</th>
+      <th>Added Words</th>
+      <th>Removed Words</th>
+      <th>Drift Score (0 stable → 1 changed)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>2017</td>
+      <td>2019</td>
+      <td>3</td>
+      <td>4</td>
+      <td>assault frame object aggravated assault key frame aggravated video key</td>
+      <td>cise surveillance poppy maritime backbone uav person reidentification</td>
+      <td>cise, surveillance, poppy, maritime, backbone, uav, person, reidentification</td>
+      <td>assault, frame, object, aggravated assault, key frame, aggravated, video, key</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>2019</td>
+      <td>2022</td>
+      <td>4</td>
+      <td>7</td>
+      <td>cise surveillance poppy maritime backbone uav person reidentification</td>
+      <td>video normal anomaly efficientdet surveillance dataset frame robbery</td>
+      <td>video, normal, anomaly, efficientdet, dataset, frame, robbery</td>
+      <td>cise, poppy, maritime, backbone, uav, person, reidentification</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>7</td>
+      <td>4</td>
+      <td>video normal anomaly efficientdet surveillance dataset frame robbery</td>
+      <td>database question module answer proposal question answer suspicious human realtime</td>
+      <td>database, question, module, answer, proposal, question answer, suspicious human, realtime</td>
+      <td>video, normal, anomaly, efficientdet, surveillance, dataset, frame, robbery</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>4</td>
+      <td>9</td>
+      <td>database question module answer proposal question answer suspicious human realtime</td>
+      <td>video surveillance activity cctv action carrying event suspicious</td>
+      <td>video, surveillance, activity, cctv, action, carrying, event, suspicious</td>
+      <td>database, question, module, answer, proposal, question answer, suspicious human, realtime</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>9</td>
+      <td>9</td>
+      <td>video surveillance activity cctv action carrying event suspicious</td>
+      <td>video anomaly video anomaly proposed computer vision anomaly detection enhancement vision</td>
+      <td>anomaly, video anomaly, proposed, computer vision, anomaly detection, enhancement, vision</td>
+      <td>surveillance, activity, cctv, action, carrying, event, suspicious</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2015</td>
+      <td>2017</td>
+      <td>3</td>
+      <td>4</td>
+      <td>disorder community neighborhood ilc local community investment local private</td>
+      <td>urban city public safety safety public crime shanghai path</td>
+      <td>urban, city, public safety, safety, public, crime, shanghai, path</td>
+      <td>disorder, community, neighborhood, ilc, local community, investment, local, private</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2017</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>4</td>
+      <td>urban city public safety safety public crime shanghai path</td>
+      <td>nonmotorized uber commuting association preterm firearm violence trip nonmotorized commuting</td>
+      <td>nonmotorized, uber, commuting, association, preterm, firearm violence, trip, nonmotorized commuting</td>
+      <td>urban, city, public safety, safety, public, crime, shanghai, path</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2020</td>
+      <td>2022</td>
+      <td>4</td>
+      <td>5</td>
+      <td>nonmotorized uber commuting association preterm firearm violence trip nonmotorized commuting</td>
+      <td>crime occurrence accident street crime street crime rate occurrence time saudi</td>
+      <td>crime, occurrence, accident, street crime, street, crime rate, occurrence time, saudi</td>
+      <td>nonmotorized, uber, commuting, association, preterm, firearm violence, trip, nonmotorized commuting</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>6</td>
+      <td>crime occurrence accident street crime street crime rate occurrence time saudi</td>
+      <td>safety urban rhpmf resident population resident employee estate visitor</td>
+      <td>safety, urban, rhpmf, resident, population, resident employee, estate, visitor</td>
+      <td>crime, occurrence, accident, street crime, street, crime rate, occurrence time, saudi</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>6</td>
+      <td>3</td>
+      <td>safety urban rhpmf resident population resident employee estate visitor</td>
+      <td>segregation urban commercial neighborhood city police multidensity police resource</td>
+      <td>segregation, commercial, neighborhood, city, police, multidensity, police resource</td>
+      <td>safety, rhpmf, resident, population, resident employee, estate, visitor</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>3</td>
+      <td>3</td>
+      <td>segregation urban commercial neighborhood city police multidensity police resource</td>
+      <td>barrier safety privacy sense naturalness preference perception park</td>
+      <td>barrier, safety, privacy, sense, naturalness, preference, perception, park</td>
+      <td>segregation, urban, commercial, neighborhood, city, police, multidensity, police resource</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2018</td>
+      <td>2019</td>
+      <td>3</td>
+      <td>3</td>
+      <td>sexual source code sexual assault assault code source sarc user</td>
+      <td>text deep fake abstract term abstract crike caselaw caselaw decision legal abstract</td>
+      <td>text, deep fake, abstract term, abstract, crike, caselaw, caselaw decision, legal abstract</td>
+      <td>sexual, source code, sexual assault, assault, code, source, sarc, user</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2019</td>
+      <td>2020</td>
+      <td>3</td>
+      <td>3</td>
+      <td>text deep fake abstract term abstract crike caselaw caselaw decision legal abstract</td>
+      <td>organised organised crime user text term rating prison term workshop</td>
+      <td>organised, organised crime, user, term, rating, prison term, workshop</td>
+      <td>deep fake, abstract term, abstract, crike, caselaw, caselaw decision, legal abstract</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2020</td>
+      <td>2021</td>
+      <td>3</td>
+      <td>5</td>
+      <td>organised organised crime user text term rating prison term workshop</td>
+      <td>secrecy trade law digital technology trade secrecy claim secret</td>
+      <td>secrecy, trade, law, digital, technology, trade secrecy, claim, secret</td>
+      <td>organised, organised crime, user, text, term, rating, prison term, workshop</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2021</td>
+      <td>2022</td>
+      <td>5</td>
+      <td>8</td>
+      <td>secrecy trade law digital technology trade secrecy claim secret</td>
+      <td>bill lobbying sermon deepfakes hate speech hate datafication lobbied</td>
+      <td>bill, lobbying, sermon, deepfakes, hate speech, hate, datafication, lobbied</td>
+      <td>secrecy, trade, law, digital, technology, trade secrecy, claim, secret</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>8</td>
+      <td>5</td>
+      <td>bill lobbying sermon deepfakes hate speech hate datafication lobbied</td>
+      <td>law war legal international would criminal author ihl</td>
+      <td>law, war, legal, international, would, criminal, author, ihl</td>
+      <td>bill, lobbying, sermon, deepfakes, hate speech, hate, datafication, lobbied</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>5</td>
+      <td>5</td>
+      <td>law war legal international would criminal author ihl</td>
+      <td>construction criminal data journalism professional journalism negligence accent rbi</td>
+      <td>construction, data journalism, professional, journalism, negligence, accent, rbi</td>
+      <td>law, war, legal, international, would, author, ihl</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>5</td>
+      <td>3</td>
+      <td>construction criminal data journalism professional journalism negligence accent rbi</td>
+      <td>defendant court chinese obi pragmatic profiling speech sociolinguistic profiling</td>
+      <td>defendant, court, chinese, obi, pragmatic, profiling, speech, sociolinguistic profiling</td>
+      <td>construction, criminal, data journalism, professional, journalism, negligence, accent, rbi</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2018</td>
+      <td>2019</td>
+      <td>4</td>
+      <td>3</td>
+      <td>cnn image inpainting manipulation forensics inpainting forensics convolutional general purpose</td>
+      <td>detector median median filtering domain object detection object filtering mmd</td>
+      <td>detector, median, median filtering, domain, object detection, object, filtering, mmd</td>
+      <td>cnn, image, inpainting, manipulation, forensics, inpainting forensics, convolutional, general purpose</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2019</td>
+      <td>2020</td>
+      <td>3</td>
+      <td>5</td>
+      <td>detector median median filtering domain object detection object filtering mmd</td>
+      <td>image compression manipulation classifier network triple double double triple</td>
+      <td>image, compression, manipulation, classifier, network, triple, double, double triple</td>
+      <td>detector, median, median filtering, domain, object detection, object, filtering, mmd</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2020</td>
+      <td>2021</td>
+      <td>5</td>
+      <td>5</td>
+      <td>image compression manipulation classifier network triple double double triple</td>
+      <td>image tampering jpeg image tampering localization djpeg antiforensics casia</td>
+      <td>tampering, jpeg, image tampering, localization, djpeg, antiforensics, casia</td>
+      <td>compression, manipulation, classifier, network, triple, double, double triple</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2021</td>
+      <td>2022</td>
+      <td>5</td>
+      <td>5</td>
+      <td>image tampering jpeg image tampering localization djpeg antiforensics casia</td>
+      <td>image recaptured median filtering median image recaptured recaptured image filtering compressed image</td>
+      <td>recaptured, median filtering, median, image recaptured, recaptured image, filtering, compressed image</td>
+      <td>tampering, jpeg, image tampering, localization, djpeg, antiforensics, casia</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>6</td>
+      <td>image recaptured median filtering median image recaptured recaptured image filtering compressed image</td>
+      <td>image forgery proposed network layer similarity metric detecting similarity</td>
+      <td>forgery, proposed, network, layer, similarity metric, detecting, similarity</td>
+      <td>recaptured, median filtering, median, image recaptured, recaptured image, filtering, compressed image</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2023</td>
+      <td>2025</td>
+      <td>6</td>
+      <td>7</td>
+      <td>image forgery proposed network layer similarity metric detecting similarity</td>
+      <td>image forgery localization image forgery forgery localization pixel copymove patch</td>
+      <td>localization, image forgery, forgery localization, pixel, copymove, patch</td>
+      <td>proposed, network, layer, similarity metric, detecting, similarity</td>
+      <td>0.857</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2021</td>
+      <td>2022</td>
+      <td>4</td>
+      <td>3</td>
+      <td>face face video face recognition area lfrp recognition video face area</td>
+      <td>deepfake deepfake detection dfdt frame video trace noise trace forensic noise</td>
+      <td>deepfake, deepfake detection, dfdt, frame, trace, noise trace, forensic noise</td>
+      <td>face, face video, face recognition, area, lfrp, recognition, face area</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>6</td>
+      <td>deepfake deepfake detection dfdt frame video trace noise trace forensic noise</td>
+      <td>face mask scheme manipulation image face image fimd fimd scheme</td>
+      <td>face, mask, scheme, manipulation, image, face image, fimd, fimd scheme</td>
+      <td>deepfake, deepfake detection, dfdt, frame, video, trace, noise trace, forensic noise</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>6</td>
+      <td>4</td>
+      <td>face mask scheme manipulation image face image fimd fimd scheme</td>
+      <td>image lrfr architecture face synthetic image synthetic lowresolution face recognition</td>
+      <td>lrfr, architecture, synthetic image, synthetic, lowresolution, face recognition</td>
+      <td>mask, scheme, manipulation, face image, fimd, fimd scheme</td>
+      <td>0.857</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>4</td>
+      <td>6</td>
+      <td>image lrfr architecture face synthetic image synthetic lowresolution face recognition</td>
+      <td>augmentation fscore model trained frame domain distortion facial content</td>
+      <td>augmentation, fscore, model trained, frame, domain, distortion, facial, content</td>
+      <td>image, lrfr, architecture, face, synthetic image, synthetic, lowresolution, face recognition</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2020</td>
+      <td>2022</td>
+      <td>5</td>
+      <td>4</td>
+      <td>attack device defense resource ddos ddos attack iot ipv</td>
+      <td>iot device attack iot device blockchain cuiot security forensics iot network</td>
+      <td>iot device, blockchain, cuiot, security forensics, iot network</td>
+      <td>defense, resource, ddos, ddos attack, ipv</td>
+      <td>0.769</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>4</td>
+      <td>4</td>
+      <td>iot device attack iot device blockchain cuiot security forensics iot network</td>
+      <td>microgrid ddos ddos detection ddqn usmd device traffic nsm</td>
+      <td>microgrid, ddos, ddos detection, ddqn, usmd, traffic, nsm</td>
+      <td>iot, attack, iot device, blockchain, cuiot, security forensics, iot network</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2023</td>
+      <td>2024</td>
+      <td>4</td>
+      <td>3</td>
+      <td>microgrid ddos ddos detection ddqn usmd device traffic nsm</td>
+      <td>iot security asrl flood attack cyberphysical security cyberphysical flood attack</td>
+      <td>iot, security, asrl, flood attack, cyberphysical security, cyberphysical, flood, attack</td>
+      <td>microgrid, ddos, ddos detection, ddqn, usmd, device, traffic, nsm</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>3</td>
+      <td>5</td>
+      <td>iot security asrl flood attack cyberphysical security cyberphysical flood attack</td>
+      <td>attack voltage adversarial adversarial attack voltage regulation regulation vehicle allocation</td>
+      <td>voltage, adversarial, adversarial attack, voltage regulation, regulation, vehicle, allocation</td>
+      <td>iot, security, asrl, flood attack, cyberphysical security, cyberphysical, flood</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>3</td>
+      <td>bone circrnas computed tomography computed tomography rifnet rib fracture</td>
+      <td>age dongxiang specie individual dongxiang group genetic biogeographic biogeographic origin</td>
+      <td>age, dongxiang, specie, individual, dongxiang group, genetic, biogeographic, biogeographic origin</td>
+      <td>bone, circrnas, computed, tomography, computed tomography, rifnet, rib, fracture</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>2023</td>
+      <td>2025</td>
+      <td>3</td>
+      <td>7</td>
+      <td>age dongxiang specie individual dongxiang group genetic biogeographic biogeographic origin</td>
+      <td>estimation morphological age tree gradient gradient boosting boosting forensic</td>
+      <td>estimation, morphological, tree, gradient, gradient boosting, boosting, forensic</td>
+      <td>dongxiang, specie, individual, dongxiang group, genetic, biogeographic, biogeographic origin</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2015</td>
+      <td>2016</td>
+      <td>3</td>
+      <td>3</td>
+      <td>privacy bitmap index bitmap internet traffic index internet splwah searching</td>
+      <td>cloud log cloud log location data location clf transformation scheme</td>
+      <td>cloud log, cloud, log, location data, location, clf, transformation, scheme</td>
+      <td>privacy, bitmap index, bitmap, internet traffic, index, internet, splwah, searching</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2016</td>
+      <td>2022</td>
+      <td>3</td>
+      <td>3</td>
+      <td>cloud log cloud log location data location clf transformation scheme</td>
+      <td>cloud accounting storage cloud storage cloud database accounting information modified forensic data</td>
+      <td>accounting, storage, cloud storage, cloud database, accounting information, modified, forensic data</td>
+      <td>cloud log, log, location data, location, clf, transformation, scheme</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>2022</td>
+      <td>2024</td>
+      <td>3</td>
+      <td>4</td>
+      <td>cloud accounting storage cloud storage cloud database accounting information modified forensic data</td>
+      <td>process business business process vehicle forensic discord bluesky invehicle</td>
+      <td>process, business, business process, vehicle, forensic, discord, bluesky, invehicle</td>
+      <td>cloud, accounting, storage, cloud storage, cloud database, accounting information, modified, forensic data</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2022</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>4</td>
+      <td>discounting substance psychiatric sociomoral adhd version group delay discounting</td>
+      <td>youth response coalition individual idu disagreement yvp romantic</td>
+      <td>youth, response, coalition, individual, idu, disagreement, yvp, romantic</td>
+      <td>discounting, substance, psychiatric, sociomoral, adhd, version, group, delay discounting</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2021</td>
+      <td>2025</td>
+      <td>4</td>
+      <td>6</td>
+      <td>source pfas source tracking route pfas source sample saliva tracking</td>
+      <td>myocardial chemical body fluid body fluid sympathetic vantaa sample</td>
+      <td>myocardial, chemical, body fluid, body, fluid, sympathetic, vantaa</td>
+      <td>source, pfas, source tracking, route, pfas source, saliva, tracking</td>
+      <td>0.933</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2018</td>
+      <td>2022</td>
+      <td>3</td>
+      <td>4</td>
+      <td>lip lip print print identification iris examiner furrow face identification</td>
+      <td>lip quality print lip print iris latent latent fingerprint individual</td>
+      <td>quality, latent, latent fingerprint, individual</td>
+      <td>identification, examiner, furrow, face identification</td>
+      <td>0.667</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2022</td>
+      <td>2024</td>
+      <td>4</td>
+      <td>5</td>
+      <td>lip quality print lip print iris latent latent fingerprint individual</td>
+      <td>fingerprint layer fingerprint image infrared encoder image edunet decoder</td>
+      <td>fingerprint, layer, fingerprint image, infrared, encoder, image, edunet, decoder</td>
+      <td>lip, quality, print, lip print, iris, latent, latent fingerprint, individual</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2023</td>
+      <td>2025</td>
+      <td>6</td>
+      <td>3</td>
+      <td>speech audio proposed spectrogram speech signal espec signal steganography</td>
+      <td>speaker coding speaker verification gsm coding enrollment gsm eer verification</td>
+      <td>speaker, coding, speaker verification, gsm coding, enrollment, gsm, eer, verification</td>
+      <td>speech, audio, proposed, spectrogram, speech signal, espec, signal, steganography</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>2020</td>
+      <td>2024</td>
+      <td>4</td>
+      <td>3</td>
+      <td>image video channel tampering model identification camera model camera many</td>
+      <td>video source camera camera camera model source model identification color correction correction feature</td>
+      <td>source camera, source, color correction, correction feature</td>
+      <td>image, channel, tampering, many</td>
+      <td>0.667</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>2024</td>
+      <td>2025</td>
+      <td>3</td>
+      <td>5</td>
+      <td>skin microbial pmi infection hand antibiotic hand infection pmi estimation</td>
+      <td>skin forensic microbiome bacterial insect heroin skin microbiome sequencing</td>
+      <td>forensic, microbiome, bacterial, insect, heroin, skin microbiome, sequencing</td>
+      <td>microbial, pmi, infection, hand, antibiotic, hand infection, pmi estimation</td>
+      <td>0.933</td>
+    </tr>
+  </tbody>
+</table>
