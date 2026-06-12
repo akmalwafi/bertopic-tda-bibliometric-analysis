@@ -1,11 +1,8 @@
-# Bibliometric Insights Web System
+Bibliometric Insights Web System
 
 A web-based system for bibliometric analysis using BERTopic and Topological Data Analysis (TDA). The system enables researchers to upload bibliographic datasets, perform topic modelling, visualize topic evolution, and explore relationships between research topics through interactive dashboards.
 
----
-
-## Features
-
+Features:
 - Topic modelling using BERTopic
 - Topic label generation
 - Interactive visualization dashboard
@@ -14,10 +11,7 @@ A web-based system for bibliometric analysis using BERTopic and Topological Data
 - Bibliographic data upload and processing
 - Research trend exploration
 
----
-
-## Technologies Used
-
+Technologies Used:
 - Python
 - Flask
 - BERTopic
@@ -26,11 +20,8 @@ A web-based system for bibliometric analysis using BERTopic and Topological Data
 - Pandas
 - HTML/CSS/JavaScript
 
----
+Project Structure:
 
-## Project Structure
-
-```text
 BibliometricProject/
 │
 ├── data/                   # Input and processed datasets
@@ -45,218 +36,74 @@ BibliometricProject/
 ├── topic_evolution.py      # Topic evolution analysis
 ├── run_mapper.py           # TDA Mapper visualization
 └── persistence_run.py      # Persistent homology analysis
-```
 
----
+Installation:
 
-## Installation
-
-### 1. Clone Repository
-
-```bash
+1. Clone Repository
 git clone https://github.com/akmalwafi/BibliometricProject.git
 cd BibliometricProject
-```
 
-### 2. Create Virtual Environment
-
-```bash
+2. Create Virtual Environment
 python -m venv .venv
-```
 
 Activate environment:
 
-Windows
-
-```bash
+Windows:
 .venv\Scripts\activate
-```
 
-Linux/Mac
-
-```bash
+Linux/Mac:
 source .venv/bin/activate
-```
 
-### 3. Install Dependencies
-
-```bash
+3. Install Dependencies
 pip install -r requirements.txt
-```
 
----
+Workflow (PyCharm Users):
 
-## Workflow
+Since this project is run inside PyCharm, start by running app.py. The Flask web application will handle the rest of the steps automatically when you interact with the web interface.
 
-### Step 1: Prepare Bibliographic Dataset
-
-Place your bibliographic dataset inside:
-
-```text
-data/
-```
-
-Supported formats:
-
-- BibTeX (.bib)
-- CSV
-
----
-
-### Step 2: Preprocess Data
-
-Run:
-
-```bash
-python preprocess_bib.py
-```
-
-This step:
-
-- Cleans records
-- Removes missing values
-- Prepares text for topic modelling
-
----
-
-### Step 3: Generate Topics Using BERTopic
-
-Run:
-
-```bash
-python bertopic_run.py
-```
-
-This step:
-
-- Creates document embeddings
-- Clusters documents
-- Generates topics
-
-Output:
-
-```text
-data/processed/
-```
-
----
-
-### Step 4: Apply Topic Labels
-
-Run:
-
-```bash
-python apply_topic_labels.py
-```
-
-This step:
-
-- Generates human-readable topic labels
-- Improves topic interpretation
-
----
-
-### Step 5: Generate Topic Evolution Analysis
-
-Run:
-
-```bash
-python topic_evolution.py
-```
-
-This step:
-
-- Tracks topic changes over time
-- Produces trend visualizations
-
----
-
-### Step 6: Generate TDA Visualizations
-
-Mapper Graph:
-
-```bash
-python run_mapper.py
-```
-
-Persistent Homology:
-
-```bash
-python persistence_run.py
-```
-
-This step:
-
-- Reveals hidden structures in the dataset
-- Identifies relationships between research topics
-
----
-
-### Step 7: Launch Web Application
-
-Run:
-
-```bash
+Step 1: Run the Flask App
 python app.py
-```
 
-Open browser:
-
-```text
+Open your browser:
 http://127.0.0.1:5000
-```
 
----
+The web app interface allows you to:
+- Upload a bibliographic dataset (.bib or .csv)
+- Preprocess the data
+- Generate BERTopic topics
+- Apply topic labels
+- Perform topic evolution analysis
+- Run TDA (Mapper and Persistent Homology)
+- Explore results through interactive visualizations
 
-## System Flow
+System Flow:
 
-```text
-Upload Dataset
-       │
-       ▼
-Data Preprocessing
-       │
-       ▼
-BERTopic Modelling
-       │
-       ▼
-Topic Label Generation
-       │
-       ▼
-Topic Evolution Analysis
-       │
-       ▼
-TDA Analysis
- ├── Mapper Graph
- └── Persistent Homology
-       │
-       ▼
-Interactive Dashboard
-```
+Run app.py → Open Web Interface
+           │
+           ▼
+       Upload Dataset
+           │
+           ▼
+     Preprocessing & Cleaning
+           │
+           ▼
+     BERTopic Modelling
+           │
+           ▼
+     Topic Label Generation
+           │
+           ▼
+     Topic Evolution Analysis
+           │
+           ▼
+     TDA Analysis (Mapper & Persistent Homology)
+           │
+           ▼
+Interactive Dashboard & Visualization
 
----
+Note: You don’t need to run the other Python scripts manually. They are called automatically by the web interface when you perform actions like uploading a dataset or generating topics.
 
-## Sample Outputs
-
-- Topic Distribution
-- Topic Evolution Charts
-- BERTopic Visualizations
-- Mapper Graph
-- Persistent Homology Diagram
-
----
-
-## Future Improvements
-
-- Real-time analysis
-- Additional topic modelling techniques
-- Advanced filtering options
-- Multi-dataset comparison
-
----
-
-## Author
-
-**Muhammad Wafi**  
-Bachelor of Computer Science (Hons.)  
+Author:
+Muhammad Wafi
+Bachelor of Computer Science (Hons.)
 Universiti Teknologi MARA (UiTM)
